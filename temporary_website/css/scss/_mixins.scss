@@ -1,0 +1,59 @@
+//!--------------BREAKPOINTS
+
+@mixin bp($point) {
+  @if $point == grandpabear {
+    @media (min-width: 1500px) { @content; }
+  }
+  @else if $point == papabear {
+    @media (min-width: 1200px) { @content; }
+  }
+  @else if $point == mamabear {
+    @media (min-width: 960px) { @content; }
+  }
+  @else if $point == babybear {
+    @media (min-width: 650px)  { @content; }
+  }
+}
+
+
+
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
+@mixin vert-center{
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+
+/*
+@mixin radial-pink{
+	background: radial-gradient(ellipse at center, rgba(236,78,108,1) 0%,rgba(232,30,68,1) 100%);
+}
+*/
+
+
+
+
+
+
+
+
+/*
+@mixin pulse-effect{
+	-webkit-animation-name: 'pulse_animation';
+	-webkit-animation-duration: 150ms;
+ 	-webkit-animation-delay: 250ms;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+*/

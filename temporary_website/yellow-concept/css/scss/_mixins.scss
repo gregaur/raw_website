@@ -1,0 +1,94 @@
+//!--------------BREAKPOINTS
+
+@mixin bp($point) {
+  @if $point == grandpabear {
+    @media (min-width: 1500px) { @content; }
+  }
+  @else if $point == papabear {
+    @media (min-width: 1200px) { @content; }
+  }
+  @else if $point == mamabear {
+    @media (min-width: 960px) { @content; }
+  }
+  @else if $point == babybear {
+    @media (min-width: 454px)  { @content; }
+  }
+}
+
+
+
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
+@mixin vert-center{
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+@mixin horiz-center{
+// 	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+
+/*
+@mixin radial-pink{
+	background: radial-gradient(ellipse at center, rgba(236,78,108,1) 0%,rgba(232,30,68,1) 100%);
+}
+*/
+
+
+
+
+
+
+
+
+/*
+@mixin pulse-effect{
+	-webkit-animation-name: 'pulse_animation';
+	-webkit-animation-duration: 150ms;
+ 	-webkit-animation-delay: 250ms;
+	-webkit-transform-origin:50% 50%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+*/
+
+
+
+// Font-Awesome Mixins
+// --------------------------
+
+@mixin fa-icon() {
+  display: inline-block;
+  font: normal normal normal #{$fa-font-size-base}/#{$fa-line-height-base} FontAwesome; // shortening font declaration
+  font-size: inherit; // can't have font-size inherit on line above, so need to override
+  text-rendering: auto; // optimizelegibility throws things off #1094
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+@mixin fa-icon-rotate($degrees, $rotation) {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$rotation});
+  -webkit-transform: rotate($degrees);
+      -ms-transform: rotate($degrees);
+          transform: rotate($degrees);
+}
+
+@mixin fa-icon-flip($horiz, $vert, $rotation) {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$rotation});
+  -webkit-transform: scale($horiz, $vert);
+      -ms-transform: scale($horiz, $vert);
+          transform: scale($horiz, $vert);
+}

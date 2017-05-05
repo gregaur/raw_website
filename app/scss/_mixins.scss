@@ -1,0 +1,202 @@
+// ----
+// libsass (v3.3.6)
+// ----
+
+// =========================================================================
+//
+//  PRECISE CONTROL OVER RESPONSIVE TYPOGRAPHY FOR SASS
+//  ---------------------------------------------------
+//  Indrek Paas @indrekpaas
+//
+//  Inspired by Mike Riethmuller's Precise control over responsive typography
+//  http://madebymike.com.au/writing/precise-control-responsive-typography/
+//
+//  `strip-unit()` function by Hugo Giraudel
+//  
+//  11.08.2016 Remove redundant `&` self-reference
+//  31.03.2016 Remove redundant parenthesis from output
+//  02.10.2015 Add support for multiple properties
+//  24.04.2015 Initial release
+//
+// =========================================================================
+
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+  @each $property in $properties {
+    #{$property}: $min-value;
+  }
+
+  @media screen and (min-width: $min-vw) {
+    @each $property in $properties {
+      #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+    }
+  }
+
+  @media screen and (min-width: $max-vw) {
+    @each $property in $properties {
+      #{$property}: $max-value;
+    }
+  }
+}
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+/* Single property */
+html {
+  @include fluid-type(font-size, 20rem, 85rem, 0.875rem, 1.125rem);
+}
+
+/* Multiple properties with same values */
+h1 {
+  @include fluid-type(padding-bottom padding-top, 20rem, 70rem, 2rem, 4rem);
+}
+
+
+
+
+
+
+
+
+
+
+$base-fontsize: 1rem;
+$bl:$base-fontsize * 1.5;
+
+
+
+
+//type scale
+
+$type-scale: (
+  -1: 0.618rem,   //small text
+  0: 1rem,      // body text
+  1: 1.618rem,  // large text
+  2: 2.618rem,   // main heading
+  3: 4.236rem,   // large heading
+);
+
+@function type-scale($level) {
+  @return map-get($type-scale, $level);
+}
+
+
+//base line heights
+
+$line-height: (
+  -1: $bl,
+  0: $bl,
+  1: $bl,
+  2: $bl * 2, 
+  3: $bl * 3
+);
+
+
+// Again, we can make a helper function:
+@function line-height($level) {
+  @return map-get($line-height, $level);
+}
+
+
+//mixin for type scale and line heights
+
+@mixin type-setting($level:0) {
+  font-size: type-scale($level);
+  line-height: line-height($level);
+}
+
+
+
+
+//MIXIN FOR THE BREAKPOINTS
+
+
+
+@mixin bp($point) {
+  @if $point == large {
+    @media (min-width: 1600px) { @content; }
+  }
+  @else if $point == medium {
+    @media (min-width: 960px) { @content; }
+  }
+  @else if $point == small {
+    @media (min-width: 600px)  { @content; }
+  }
+  @else if $point == mobile {
+    @media (min-width: 480px)  { @content; }
+  }
+}
+
+
+
+
+
+
+//HOMEPAGE MIXINS
+
+
+
+//overlay mixins
+@mixin mainlogoLetters($y-val,$opacity){
+	transform:translate3d(0,$y-val,0);
+	opacity:$opacity;
+}
+
+
+
+@mixin logoAnimations-rawlinson(){
+	@keyframes r{
+		0% {@include mainlogoLetters(-400px,0);}
+		100% {@include mainlogoLetters(0px,1);}
+	}
+
+	@keyframes w{
+		0% {@include mainlogoLetters(-400px,0);}
+		100% {@include mainlogoLetters(0,1);}
+	}
+
+	@keyframes i{
+		0% {@include mainlogoLetters(-400px,0);}
+		100% {@include mainlogoLetters(0,1);}
+	}
+
+	@keyframes s{
+		0% {@include mainlogoLetters(-400px,0);}
+		100% {@include mainlogoLetters(0,1);}
+	}
+
+	@keyframes n-2{
+		0% {@include mainlogoLetters(-400px,0);}
+		100% {@include mainlogoLetters(0px,1);}
+	}
+
+
+	@keyframes a{
+		0% {@include mainlogoLetters(400px,0);}
+		100% {@include mainlogoLetters(0px,1);}
+	}
+
+	@keyframes l{
+		0% {@include mainlogoLetters(400px,0);}
+		100% {@include mainlogoLetters(0,1);}
+	}
+
+	@keyframes n{
+		0% {@include mainlogoLetters(400px,0);}
+		100% {@include mainlogoLetters(0,1);}
+	}
+
+	@keyframes o{
+		0% {@include mainlogoLetters(400px,0);}
+		100% {@include mainlogoLetters(0,1);}
+	}
+
+
+}
+
+
+
+
+
+

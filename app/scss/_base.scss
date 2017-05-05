@@ -1,0 +1,512 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+//own reset addons
+
+html{
+  // font-size:14px;
+  // @include bp(small){
+  //   font-size:15px;
+  // }
+  // @include bp(medium){
+  //   font-size:16px;
+  // }
+  // @include bp(large){
+  //   font-size:18px;
+  // }
+   @include fluid-type(font-size, 20rem, 85.375rem, 0.875rem, 1.125rem);
+}
+
+
+// Timeline
+// 1. polygon is drawn with R
+// 2. background fades in
+
+@font-face {
+  font-family: 'CovesBold';
+  src: url('../../fonts/coves/Coves Bold.eot'); /* IE9 Compat Modes */
+  src: url('../../fonts/coves/Coves Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../fonts/coves/Coves Bold.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../../fonts/coves/Coves Bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../../fonts/coves/Coves Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../../fonts/coves/Coves Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'CovesLight';
+  src: url('../../fonts/coves/Coves Light.eot'); /* IE9 Compat Modes */
+  src: url('../../fonts/coves/Coves Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../fonts/coves/Coves Light.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../../fonts/coves/Coves Light.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../../fonts/coves/Coves Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../../fonts/coves/Coves Light.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'IkarosLight';
+  src: url('../../fonts/ikaros/Ikaros-Light.eot'); /* IE9 Compat Modes */
+  src: url('../../fonts/ikaros/Ikaros-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../fonts/ikaros/Ikaros-Light.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../../fonts/ikaros/Ikaros-Light.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../../fonts/ikaros/Ikaros-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../../fonts/ikaros/Ikaros-Light.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'IkarosRegular';
+  src: url('../../fonts/ikaros/Ikaros-Regular.eot'); /* IE9 Compat Modes */
+  src: url('../../fonts/ikaros/Ikaros-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../fonts/ikaros/Ikaros-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../../fonts/ikaros/Ikaros-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../../fonts/ikaros/Ikaros-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'KanoRegular';
+  src: url('../../fonts/kano/Kano-Regular.eot'); /* IE9 Compat Modes */
+  src: url('../../fonts/kano/Kano-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../fonts/kano/Kano-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../../fonts/kano/Kano-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../../fonts/kano/Kano-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+
+
+
+p{
+    font-family: 'CovesLight';
+    letter-spacing:0.5px;
+    line-height:1.5;
+    color:$offwhite;
+    transform:translate(50px,50px);
+    opacity:0;
+    text-rendering: optimizeLegibility;
+}
+
+//OuterStrips
+
+$stripwidth:4px;
+$halfwidth:$stripwidth/2;
+$doublewidth:$stripwidth*2;
+
+@mixin strips(){
+  position:absolute;
+  z-index:10;  
+}
+
+
+@mixin stripblocks(){
+  content:'';
+  position:absolute;
+}
+
+
+
+
+
+
+.topstrip{
+  @include strips();
+  background-color:rgba(250,250,250,1); 
+  top:0;
+  height:$stripwidth;
+  width:calc(100% - #{$doublewidth});
+  left:$stripwidth;
+  &:before{
+    @include stripblocks();
+    top:0px;
+    left:-$stripwidth;
+    border-bottom:$stripwidth solid transparent;
+    border-left:0px solid transparent;
+    border-right:$stripwidth solid rgba(250,250,250,1); 
+  }
+  &:after{
+    @include stripblocks();
+    top:0;
+    right:-$stripwidth;
+    border-bottom:$stripwidth solid transparent;
+    border-right:0px solid transparent;
+    border-left:$stripwidth solid rgba(250,250,250,1); 
+  }
+}
+
+.bottomstrip{
+  @include strips();
+  background-color:rgba(250,250,250,1); 
+  bottom:0;
+  height:$stripwidth+1px;
+  width:calc(100% - #{$doublewidth});
+  left:$stripwidth; 
+  &:before{
+    @include stripblocks();
+    bottom:0;
+    left:-$stripwidth;
+    border-top:$stripwidth solid transparent;
+    border-right:$stripwidth solid rgba(250,250,250,1);
+    border-left:0 solid transparent; 
+  }
+  &:after{
+    @include stripblocks();
+    bottom:0;
+    right:-$stripwidth;
+    border-top:$stripwidth solid transparent;
+    border-left:$stripwidth solid rgba(250,250,250,1);
+    border-right:0px solid transparent;
+  }
+}
+
+.leftstrip{
+  @include strips();
+  background-color:rgba(250,250,250,1); 
+  left:0;
+  height:calc(100% - #{$doublewidth});
+  width:$stripwidth;
+  top:$stripwidth;
+  &:before{
+    @include stripblocks();
+    top:-$stripwidth;
+    left:0px;
+    border-top:$stripwidth solid transparent;
+    border-left:$stripwidth solid rgba(250,250,250,1);
+    border-right:0px solid transparent; 
+  }
+  &:after{
+    @include stripblocks();
+    bottom:-$stripwidth;
+    left:0px;
+    border-bottom:$stripwidth solid transparent;
+    border-left:$stripwidth solid rgba(250,250,250,1);
+    border-right:0px solid transparent;
+  }
+}
+
+.rightstrip{
+  @include strips();
+  background-color:rgba(250,250,250,1); 
+  right:0;
+  height:calc(100% - #{$doublewidth});
+  width:$stripwidth;
+  top:$stripwidth;
+  &:before{
+    @include stripblocks();
+    top:-$stripwidth;
+    left:0px;
+    border-top:$stripwidth solid transparent;
+    border-right:$stripwidth solid rgba(250,250,250,1);
+    border-left:0px solid transparent; 
+  }
+  &:after{
+    @include stripblocks();
+    bottom:-$stripwidth;
+    left:0px;
+    border-bottom:$stripwidth solid transparent;
+    border-right:$stripwidth solid rgba(250,250,250,1);
+    border-left:0px solid transparent;
+  }
+}
+
+.diagonaloverlay-fixed{
+  position:fixed;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  z-index: 3;
+}
+
+
+@keyframes diagonal-riseandrotate {
+    0%   { transform: rotate(-90deg);}
+    100% { transform: rotate(-35deg);}
+}
+
+@keyframes shift-diagoverlayone {
+    0%   { transform: translateX(-1000px);}
+    50%   { transform: translateX(0);}
+    100% { transform:translateX(-100px);}
+}
+
+@keyframes shift-diagoverlaytwo {
+    0%   { transform: translateX(-1000px);}
+    50%   { transform: translateX(0);}
+    100% { transform:translateX(0px);}
+}
+
+@keyframes shift-diagoverlaythree {
+    0%   { transform: translateX(-1000px);}
+    50%  { transform: translateX(0);}
+    100% { transform:translateX(-250px);}
+}
+
+
+
+.diagoverlay-container{
+  position: absolute;
+  top: 50%;
+  left: -30%;
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 350px;
+  
+  &.start-animate{
+    animation:diagonal-riseandrotate 1.5s 1.5s forwards;
+    .diagoverlay1{
+      animation:shift-diagoverlayone 3s forwards;
+    }
+    .diagoverlay2{
+      animation:shift-diagoverlaytwo 3s forwards;
+    }
+    .diagoverlay3{
+      animation:shift-diagoverlaythree 3s forwards;
+    }
+  }
+}
+
+.diagoverlay1{
+  background-color: rgba(15, 22, 38, 0.45);
+  width: 100%;
+  height: 100px; 
+  position:relative;
+  transform:translateX(-1000px);
+}
+
+.diagoverlay2{
+  background-image: linear-gradient(rgba(250,250,250,0.06) 0%, rgba(250,250,250,0.06) 95%);
+  width: 100%;
+  height: 150px;  
+  transform:translateX(-1000px);
+}
+
+.diagoverlay3{
+  background-image: linear-gradient(-226deg, rgba(171,152,122,0.13) 0%, rgba(0,0,0,0.14) 60%);
+  width: 100%;
+  height: 100px;  
+  position:relative;
+  transform:translateX(-1000px);
+}
+
+
+//HomeSection
+
+#home{
+  background-color:$deep-blue;
+  width:100%;
+  height:100vh;  
+  background-image:url('/images/homepic.png');
+  background-size:cover;
+
+
+
+
+
+  .image-blurry{
+    position:absolute;
+    z-index:1;
+    top:0;
+    width:100%;
+    bottom:0;
+    background-image:url('/images/fadedimage.png');
+    background-size:cover;
+    transition:opacity 8s 2s ease-out;
+  }
+
+
+  .homeoverlay-container.blurry{
+    .homeoverlay{
+      opacity:0.9;
+    }
+    .image-blurry{
+      opacity:0;
+    }
+  }
+
+
+
+ 
+
+
+  .polycontainer{
+    width:250px;
+    height:239px;
+    z-index:5;
+    position:absolute;
+    left:50%;
+    transform:translate(-50%,-158px);
+    top:50%;
+    .doublepoly{
+      transition:all 1s;
+      transform-origin: 50% 50%;
+    }
+    .r-both{
+      transition:opacity 2s;
+    }
+   
+    &.explode{
+      .doublepoly{
+        transform:scale(2,2);
+        opacity:0;
+      }
+      .r-both{
+        opacity:0;
+      }
+
+    }
+  }
+
+  #animatinglogo{
+    width:250px;
+    height:239px;
+  }
+
+  .title-container{
+    @include fluid-type(width, 20rem, 85.375rem, 22rem, 32rem);
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+   
+
+    #greg{
+      position:absolute;
+      margin-left:$bl*2;
+      width:$bl*3;
+      transform:translate(- $bl*2,- $bl*4);
+      opacity:0;
+    }
+
+
+
+    .rawlinson-name{
+      @include fluid-type(font-size, 20rem, 85.375rem, 4.236rem, 6.854rem);
+      font-family: 'IkarosRegular';
+      color:$orange;
+      
+      &>div{
+          display:inline-block;
+          opacity:0;
+          transform:translateX(129px);
+          transition:opacity 3s;
+      }
+    }
+    
+      @keyframes gregfadein{
+        0% {opacity:0;transform:translate(- $bl*2,- $bl*4);}
+        100% {opacity:1;transform:translate(0px,- $bl*1.5);}
+      }
+
+      @keyframes pfadein{
+        0% {opacity:0;transform:translate(50px,50px);}
+        100% {opacity:1;transform:translate(0px,0px);}
+      }
+    
+      @keyframes letterfadein-r{
+         0% {opacity:0;transform:translateX(129px);}
+         70% {opacity:1;transform:translateX(129px);}
+         100% {opacity:1;transform:translateX(0px);}
+      }
+      @keyframes letterfadein{
+         0% {opacity:0;transform:translateX(129px);}
+         70% {opacity:0;transform:translateX(129px);}
+         100% {opacity:1;transform:translateX(0px);}
+      }
+    
+
+    &.start-animate{
+      .rawlinson-name {
+        .r{animation:letterfadein-r 2s forwards;color:#FF3E65;}
+        .a{animation:letterfadein 2s 0.1s forwards;color:#FF445B;}
+        .w{animation:letterfadein 2s 0.2s forwards;color:#FF4752;}
+        .l{animation:letterfadein 2s 0.3s forwards;color:#FF4850;}
+        .i{animation:letterfadein 2s 0.4s forwards;color:#FF4A4D;}
+        .n{animation:letterfadein 2s 0.5s forwards;color:#FF4D47;}
+        .s{animation:letterfadein 2s 0.6s forwards;color:#FF5042;}
+        .o{animation:letterfadein 2s 0.7s forwards;color:#FF533D;}
+        .n-2{animation:letterfadein 2s 0.8s forwards;color:#FF533D;}
+        
+      }
+      #greg{
+        animation:gregfadein 2.5s 2s forwards;
+      }
+      p{
+        animation:pfadein 2.5s 2s forwards;
+      }
+      
+    }
+
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+//HOMEOVERLAY
+
+
+
+
+
+
+
+
+
+
+//ABOUT SCREEN
+
+
+
+

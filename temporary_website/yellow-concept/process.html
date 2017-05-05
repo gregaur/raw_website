@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+
+	<title>YellowApp-Proto</title>
+	<link href='https://fonts.googleapis.com/css?family=Alegreya:400,700,700italic,400italic|Open+Sans:400,600,700,300,400italic,600italic' rel='stylesheet' type='text/css'>
+	<meta name="robots" content="noindex, nofollow" />
+	<link rel="stylesheet" href="css/css/main.css">
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+
+
+<body id="main">
+	<a href="index.html" class="back-button">Back</a>
+	<div class="process-container">
+		
+		<br />
+		<br />
+		<h1>Prototype Concept:</h1>
+		<br />
+		<p>
+			To make the prototype feel more like a phone app, I felt it would be best to load up all the content at once and then transition from one screen to another to another giving the user a smoother experience. To do this, I place 3 containers side by side (one for each screen view) into one main container which is the width of the mobile device and has the attribute - overflow:hidden. By adding and removing classes to each of the child containers when buttons are pressed and using css transitions, I'm able to shift the screen views from one screen to the next. Because the content has different heights on each screen view, I've used jQuery to measure the height of each screen's content as soon as a button is pressed and then setting the height of it's container.
+		</p>
+		<br />
+		<img src="images/progress-1.jpg" alt="progress-1">
+		<br />
+		<br />
+		<h1>Homepage:</h1>
+		<br />
+		<p>
+			Coming up with a flat ui design concept that allows for rich visual imagery of each location/service I felt was important for this app. I also wanted the bright yellow from the Yellow branding to act as a highlight colour and not overwhelm the imagery.
+			<br />
+			I'm not a fan of big headers on apps, but making it really easy for the users to find their service/location is the primary objective here. Keeping the search bar and 'browse' button straight beneath the logo felt okay to me on the homepage as long as it added to the design and wasn't fixed as the user scrolls down.<br />
+			Reviews are a biggie on this type of app as users rely on these when weighing up different options so have kept these prominent and inline with the existing app. I thought having the number of comments was important as this gives the user a clear indication of how opinionated the review rating may be. Another thing I considered was whether or not it was necessary to let the user know what the rating was out of and felt that this was something that would be overly repetitive info for returning users and a first time user would find this almost immediately by tapping on the star. <br />Tapping on each on the restaurant images reveals 3 mini icons and an option for the viewer to go to the detail page. I felt this was necessary to keep the users in the flow rather than whisking them off to the details page each time they wanted to use one of these functions. Tapping on the review icon and title takes them to the Individual page - I figured this wouldn't be immediately obvious but returning users would pick this up quite quickly.
+		</p>
+		
+		<br />
+		<img src="images/progress-2.jpg" alt="progress-2">
+		<br />
+		<img src="images/progress-3.jpg" alt="progress-3">
+		<br />
+		<img src="images/progress-4.jpg" alt="progress-4">
+		<br />
+		<h1>Individual:</h1>
+		<br />
+		<p>
+		I had a few different ideas around how this page would work. Initially I'd planned to have 5 stars directly beneath the main image/slider. The user could then tap on these quite easily to give a rating. I thought about this a bit more and felt that it distracted from the imagery and would pull prominence away from the other buttons on the page. I felt it would be best to treat each button the same to keep uniformity and make it easy for users to spot what they're looking for, hence the introduction of the tabs.<br />At first I thought of having horizontal tabs layered on on top of the other, that expand vertically when pressed, but felt that would be cumbersome as users are unable to see the other options when the tabs are open - especially the long ones! Also, from a performance point of view, it wouldn't be great to be shifting large chunks of content of unknown height up and down the screen when the user is opening and closing tabs.<br /><br />I created the full functionality around the tabs by once again adding and removing classes when buttons are pressed. On the initial view, all of the content is sitting off to the right and out of view. When the user taps on a tab a class is added which brings it back in to view through css transform:translate. This <a class="article" target="blank" href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">article</a> explains why I use this method and a few others to avoid using clunky jQuery animations.</p>
+		
+		<br />
+		<img src="images/progress-5.jpg" alt="progress-5">
+		<br />
+		<img src="images/progress-6.jpg" alt="progress-6">
+		<br />
+		<img src="images/progress-7.jpg" alt="progress-7">
+		<br />
+		<h1>End</h1>
+		<br />
+	</div>
+	
+	
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type='application/javascript' src='js/fastclick.js'></script>
+	<script  type="text/javascript" src="js/pushy.min.js"></script>
+	<script  type="text/javascript" src="js/main.js"></script>
+	
+
+</body>
+</html>
