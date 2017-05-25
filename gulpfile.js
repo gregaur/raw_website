@@ -9,8 +9,6 @@ var uglify = require('gulp-uglify');
 var rename = require("gulp-rename");
 var babel = require('gulp-babel');
 
-var $path = ("node_modules/foundation-sites/js");
-
 //initialize browsersync
 
 
@@ -32,7 +30,6 @@ gulp.task('js',function(){
     return gulp.src([
         'app/js/jquery.min.js',
         // 'node_modules/foundation-sites/dist/js/foundation.min.js',
-        'node_modules/progressbar.js/dist/progressbar.min.js',
         // 'node_modules/foundation-sites/dist/js/foundation.util.timerAndImageLoader.js',
         'app/js/main.js'])
     .pipe(babel({
