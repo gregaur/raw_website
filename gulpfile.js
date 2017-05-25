@@ -46,8 +46,6 @@ gulp.task('js',function(){
 
 
 
-
-
 gulp.task('rawli-sass', ['sass'],function(){
     gulp.watch("app/scss/*.scss", ['sass']);
     gulp.watch("app/*.html").on('change', browserSync.reload);
@@ -55,13 +53,11 @@ gulp.task('rawli-sass', ['sass'],function(){
 
 
 
-
-
 gulp.task('sass', function(){
   return gulp.src('app/scss/styles.scss')
     .pipe(sourcemaps.init())
-    // .pipe(sass({includePaths: ['node_modules/foundation-sites/scss','node_modules/motion-ui/src']}))
-        //.pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(sourcemaps.write('../../maps'))
     .pipe(gulp.dest('app/dist/css'))
     .pipe(browserSync.stream());
@@ -72,6 +68,34 @@ gulp.task('default', ['browsersync-init','rawli-sass','rawli-js']);
 
 
 
+
+
+
+
+
+
+
+
+
+
+// gulp.task('sass', function () {
+//   gulp.src('css/scss/*.scss')
+//     .pipe(sourcemaps.init())
+
+    
+//     .pipe(sass({style: 'compressed'}))
+//     .on('error', onError)   
+//     .pipe(autoprefixer({browsers: ['last 5 versions'],cascade: false}))
+//     .pipe(sourcemaps.write('maps'))
+//     .pipe(gulp.dest('css/css'))
+//     .pipe(browserSync.stream());
+// });
+
+
+
+
+
+// gulp.task('default', ['serve']);
 
 
 
