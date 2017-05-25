@@ -9,15 +9,12 @@ sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('serve', ['sass'], function() {
     browserSync.init({
-        server: "../portfolio-temp"
+        server: "../temporary_website"
     });
 
     gulp.watch("css/scss/*.scss", ['sass']);
     gulp.watch("*.html").on('change', browserSync.reload);
 });
-
-
-
 
 
 
