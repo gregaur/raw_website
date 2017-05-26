@@ -1,3 +1,5 @@
+
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -103,6 +105,12 @@ table {
 html {
   @include fluid-type(font-size, 320px, 1366px, 15px, 18px);
   background-color:#f5f5f5;
+   box-sizing: border-box;
+   color:#0F1626;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 
@@ -113,7 +121,7 @@ h1 {
   line-height:1.25;
   font-size:2.369em;
   @include fluid-type(padding-bottom padding-top, 20em, 70em, 0.5em, 0.5em);
-  text-align:center;
+
 }
 
 h2{
@@ -129,23 +137,42 @@ p{
   font-family: 'Proxima Nova';
   font-size:1.125em;
   line-height:1.5;
-  @include fluid-type(padding-bottom, 20em, 70em, 2em, 4em);
-  text-align:center;
-  max-width:550px;
+  @include fluid-type(padding-bottom, 20em, 70em, 0.5em, 0.5em);
 }
 
 
 
 
+//GENERAL
+
+.wrapper{
+  width:93.75%;
+  margin: 0 auto;
+}
 
 // SECTIONS
+section h1{
+    text-align:center;
+}
+
+section p{
+  text-align:center;
+  max-width:600px;
+  margin: 0 auto;
+}
+
+section.intro,section.more_about{
+  @include fluid-type(padding-bottom padding-top, 20em, 70em, 12em, 16em);
+}
 
 section.opening{
   height:90vh;
   background-image: url("../../images/GregProfilepic.jpg");
-  background-position:10% top;
+  background-position:0 center;
   background-size:cover;
-  width:100%;
+  background-repeat:no-repeat;
+  width:98vw;
+  margin:1vw 1vw 0;
   position:relative;
   h1{
     position:absolute;
@@ -153,18 +180,154 @@ section.opening{
     transform:translateY(-50%);
     text-align:left;
     margin:0 auto;
-    width:100%;
     color:#fff;
+    text-align:center;
+    margin-left:3.125%;
+    margin-right:3.125%;
     span{
       color:$yellow;
     }
+    @include bp(babybear){
+      text-align:left;
+      margin-left:14%;
+      margin-right:0;
+      background-position:10% center;
+      width:auto;
+    }
   }
+}
+
+
+section.projects{
+  @include clearfix();
+  width:98%;
+  margin:0 1%;
+  max-width:1350px;
+
+  @include bp(babybear){
+    width:99%;
+    margin:0 auto;
+
+  }
+  .project{
+    margin:1% 0;
+    width:98%;
+    float:left;
+    position:relative;
+    background-size:100%;
+    padding-top:76%;
+    overflow:hidden;
+
+
+    @include bp(babybear){
+        width:49%;
+        margin:0.5% 0.5%;
+        padding-top:38%;
+    }
+
+    @include bp(mamabear){
+        width:48%;
+        margin:1% 1%;
+        padding-top:37%;
+    }
+  }
+  
+  .project:before{
+    content: "";
+    position: absolute;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 1s ease-out;
+  }
+
+  .kaha:before{background: url("../../images/prev_kaha.jpg");}
+  .br:before{background: url("../../images/prev_br.jpg");}
+  .loaf:before{background: url("../../images/prev_loaf.jpg");}
+  .yukfoo:before{background: url("../../images/prev_yukfoo.jpg");}
+
+
+  .button{
+    font-family: 'Proxima Nova';
+    font-size:1.125em;
+    line-height:1.5;
+    text-decoration:none;
+    color:#fff;
+    position:absolute;
+    border:1px solid #fff;
+    text-align:center;
+    border-radius:2px;
+    @include fluid-type(padding-top padding-bottom, 20em, 70em, 0.5em, 0.5em);
+    @include fluid-type(width, 20em, 70em, 7em, 7em);
+    @include fluid-type(bottom, 20em, 70em, 2em, 3em);
+    transition: all .2s ease-out;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width:auto;
+  }
+
+  .project:hover:before{
+    background-size:105%;
+    
+  }
+
+  .project:hover .button{
+   // transform:scale(1.1);
+  }
+
+
+ 
+
+
+
+  .kaha .button{background-color:#06457F;}
+  .br .button{background-color:#160516;}
+  .loaf .button{background-color:#1B0804;}
+  .yukfoo .button{background-color:#961E1B;}
 }
 
 
 
 
 
+.icons_container{
+  text-align:center;
+  display:inline-block;
+  width:100%;
+  @include fluid-type(margin-top, 20em, 70em, 3em, 3em);
+  a{
+    background-color:$yellow;
+    border:1px solid transparent;
+    cursor:pointer;
+    display: inline-block;
+    vertical-align:middle;
+    padding:1em;
+    border-radius:4px;
+    @include fluid-type(width height, 20rem, 70rem, 4rem, 4rem);
+    @include fluid-type(margin-left margin-right, 20em, 70em, 0.5em, 0.5em);
+    
+      svg{
+        margin-top: 50%;
+        transform: translateY(-50%);
+      }
+      &:hover{
+        border-color:$darkblue;
+        transition: border-color 0.5s ease-in;
+      }
+  }
+}
+
+
+section.contact{
+  background-image: url("../../images/footer_back.jpg");
+  @include fluid-type(padding-bottom padding-top, 20em, 70em, 6em, 8em);
+  background-size:cover;
+  color:#fff;
+}
 
 
 
