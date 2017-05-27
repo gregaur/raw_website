@@ -202,52 +202,52 @@ section.projects{
   @include clearfix();
   width:98%;
   margin:0 1%;
-  max-width:1350px;
-
+  
   @include bp(babybear){
     width:99%;
     margin:0 auto;
-
   }
+  @include bp(papabear){
+    width:88%;
+  }
+   @include bp(grandpabear){
+    width:70%;
+  }
+
+
+
+
   .project{
     margin:1% 0;
     width:98%;
     float:left;
     position:relative;
     background-size:100%;
-    padding-top:76%;
     overflow:hidden;
-
-
     @include bp(babybear){
         width:49%;
         margin:0.5% 0.5%;
-        padding-top:38%;
     }
 
     @include bp(mamabear){
         width:48%;
         margin:1% 1%;
-        padding-top:37%;
+    }
+
+    img{
+      width:100%;
+      float:left;
+    }
+
+    .overlay{
+      position:absolute;
+      width:100%;
+      height:100%;
+      transition: all .2s ease-out;
     }
   }
   
-  .project:before{
-    content: "";
-    position: absolute;
-    background-size: 100%;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all 1s ease-out;
-  }
 
-  .kaha:before{background: url("../../images/prev_kaha.jpg");}
-  .br:before{background: url("../../images/prev_br.jpg");}
-  .loaf:before{background: url("../../images/prev_loaf.jpg");}
-  .yukfoo:before{background: url("../../images/prev_yukfoo.jpg");}
 
 
   .button{
@@ -257,33 +257,35 @@ section.projects{
     text-decoration:none;
     color:#fff;
     position:absolute;
+    z-index:1;
     border:1px solid #fff;
     text-align:center;
     border-radius:2px;
     @include fluid-type(padding-top padding-bottom, 20em, 70em, 0.5em, 0.5em);
     @include fluid-type(width, 20em, 70em, 7em, 7em);
     @include fluid-type(bottom, 20em, 70em, 2em, 3em);
-    transition: all .2s ease-out;
+    transition: all .5s ease-out;
     margin: 0 auto;
     left: 0;
     right: 0;
     width:auto;
   }
 
-  .project:hover:before{
-    background-size:105%;
+ 
+
+  .project .button:hover + div{
+    // .overlay{
+      background-color:rgba(0,0,0,0.2);
+    // }
     
   }
 
-  .project:hover .button{
-   // transform:scale(1.1);
-  }
-
+  .kaha .button:hover{background-color:#148BDF;}
+  .br .button:hover{background-color:#631663;}
+  .loaf .button:hover{background-color:#692010;}
+  .yukfoo .button:hover{background-color:#c9423c;}
 
  
-
-
-
   .kaha .button{background-color:#06457F;}
   .br .button{background-color:#160516;}
   .loaf .button{background-color:#1B0804;}
@@ -305,6 +307,7 @@ section.projects{
     cursor:pointer;
     display: inline-block;
     vertical-align:middle;
+    transition: all 0.5s ease-out;
     padding:1em;
     border-radius:4px;
     @include fluid-type(width height, 20rem, 70rem, 4rem, 4rem);
@@ -315,8 +318,8 @@ section.projects{
         transform: translateY(-50%);
       }
       &:hover{
-        border-color:$darkblue;
-        transition: border-color 0.5s ease-in;
+        background-color:$darkblue;
+        g{fill:$yellow;}
       }
   }
 }
@@ -327,9 +330,24 @@ section.contact{
   @include fluid-type(padding-bottom padding-top, 20em, 70em, 6em, 8em);
   background-size:cover;
   color:#fff;
+  a{
+    color:$yellow;
+    text-decoration:none;
+    &:hover{
+      text-decoration:underline;
+    }
+  }
 }
 
 
+section.project_wrapper{
+  width:100%;
+  margin:0 auto;
+  max-width:1280px;
+  img{
+    width:100%;
+  }
+}
 
 
 
