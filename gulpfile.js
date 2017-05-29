@@ -14,7 +14,7 @@ var babel = require('gulp-babel');
 
 gulp.task('browsersync-init', [], function() {
     browserSync.init({
-        server: "./app"
+        server: "./"
     });
 });
 
@@ -22,7 +22,8 @@ gulp.task('browsersync-init', [], function() {
 
 gulp.task('rawli-js', ['js'],function(){
     gulp.watch("app/js/*.js", ['js']);
-    gulp.watch("app/*.html").on('change', browserSync.reload);
+    gulp.watch("*.html").on('change', browserSync.reload);
+    gulp.watch("dist/projects/*.html").on('change', browserSync.reload);
 });
 
 
@@ -38,19 +39,18 @@ gulp.task('js',function(){
     .pipe(concat('all.js'))
     //.pipe(uglify())
     .pipe(rename("all.min.js"))
-    .pipe(gulp.dest('app/dist/js'))
+    .pipe(gulp.dest('dist/js'))
     .pipe(browserSync.stream());
 });
 
 
 
 
-
 gulp.task('rawli-sass', ['sass'],function(){
     gulp.watch("app/scss/*.scss", ['sass']);
-    gulp.watch("app/*.html").on('change', browserSync.reload);
+    gulp.watch("*.html").on('change', browserSync.reload);
+    gulp.watch("dist/projects/*.html").on('change', browserSync.reload);
 });
-
 
 
 gulp.task('sass', function(){
@@ -59,7 +59,7 @@ gulp.task('sass', function(){
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(sourcemaps.write('../../maps'))
-    .pipe(gulp.dest('app/dist/css'))
+    .pipe(gulp.dest('dist/css'))
     .pipe(browserSync.stream());
 });
 
