@@ -221,8 +221,8 @@ section.projects{
   }
 
    @include bp(grandpabear){
-     max-width:1500px;
-     margin: 0 auto;
+     // max-width:1500px;
+     // margin: 0 auto;
   }
 
 
@@ -247,12 +247,7 @@ section.projects{
       float:left;
     }
 
-    .overlay{
-      position:absolute;
-      width:100%;
-      height:100%;
-      transition: all .2s ease-out;
-    }
+    
   }
   
 
@@ -281,16 +276,13 @@ section.projects{
 
  
 
-  .project .button:hover + img{
 
-      filter:blur(3px);
-    
-  }
+  // .kaha .button:hover{background-color:#081c2f;}
+  // .br .button:hover{background-color:#631663;}
+  // .loaf .button:hover{background-color:#692010;}
+  // .yukfoo .button:hover{background-color:#c9423c;}
 
-  .kaha .button:hover{background-color:#148BDF;}
-  .br .button:hover{background-color:#631663;}
-  .loaf .button:hover{background-color:#692010;}
-  .yukfoo .button:hover{background-color:#c9423c;}
+ 
 
  
   .kaha .button{background-color:#06457F;}
