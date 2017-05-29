@@ -120,7 +120,6 @@ h1 {
   font-family: 'Proxima Nova bold';
   line-height:1.25;
   font-size:2.369em;
-  letter-spacing:1px;
   @include fluid-type(padding-bottom padding-top, 20em, 70em, 0.5em, 0.5em);
 
 }
@@ -163,7 +162,7 @@ section p{
 }
 
 section.intro,section.more_about{
-  @include fluid-type(padding-bottom padding-top, 20em, 70em, 12em, 16em);
+  @include fluid-type(padding-bottom padding-top, 20em, 70em, 10em, 14em);
 }
 
 section.opening{
@@ -172,10 +171,20 @@ section.opening{
   background-position:50%;
   background-size:cover;
   background-repeat:no-repeat;
-  width:98vw;
-  margin:1vw 1vw 0;
+  width:94vw;
+  margin:3vw 3vw 0;
   position:relative;
+  @include bp(babybear){
+    width:97vw;
+    margin:1.5vw 1.5vw 0;
+  }
+  @include bp(grandpabear){
+    width:98vw;
+    margin:1vw 1vw 0;
+  }
   h1{
+    @include fluid-type(font-size, 20em, 70em, 2em, 2.369em);
+    letter-spacing:1px;
     position:absolute;
     line-height:1;
     top:50%;
@@ -203,38 +212,34 @@ section.opening{
 
 section.projects{
   @include clearfix();
-  width:98%;
-  margin:0 1%;
+  width:94vw;
+  margin:0 3vw;
   
   @include bp(babybear){
-    width:99%;
-    margin:0 auto;
+    width:99vw;
+    margin:0 0.5vw;
   }
-  @include bp(papabear){
-    width:88%;
-  }
+
    @include bp(grandpabear){
-    width:70%;
+     max-width:1500px;
+     margin: 0 auto;
   }
 
 
 
 
   .project{
-    margin:1% 0;
-    width:98%;
+    width:100%;
     float:left;
     position:relative;
     background-size:100%;
     overflow:hidden;
-    @include bp(babybear){
-        width:49%;
-        margin:0.5% 0.5%;
-    }
+    margin:1.5vw 0;
 
-    @include bp(mamabear){
+    @include bp(babybear){
         width:48%;
-        margin:1% 1%;
+        margin:1vw 1%;
+
     }
 
     img{
@@ -276,10 +281,9 @@ section.projects{
 
  
 
-  .project .button:hover + div{
-    // .overlay{
-      background-color:rgba(0,0,0,0.2);
-    // }
+  .project .button:hover + img{
+
+      filter:blur(3px);
     
   }
 
