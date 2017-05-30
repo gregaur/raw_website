@@ -99,6 +99,17 @@ table {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Helvetica Neue Bold';
+  src: url('../../dist/fonts/helvetica-neue-bold.eot');
+  src: url('../../dist/fonts/helvetica-neue-bold.eot?#iefix') format('embedded-opentype'),
+  url('../../dist/fonts/helvetica-neue-bold.woff2') format('woff2'),
+  url('../../dist/fonts/helvetica-neue-bold.woff') format('woff'),
+  url('../../dist/fonts/helvetica-neue-bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 //FONT SETTINGS
 
 /* Single property */
@@ -117,17 +128,20 @@ html {
 
 /* Multiple properties with same values */
 h1 {
-  font-family: 'Proxima Nova bold';
+  font-family: 'Helvetica Neue Bold';
   line-height:1.25;
-  font-size:2.369em;
-  @include fluid-type(padding-bottom padding-top, 20em, 70em, 0.5em, 0.5em);
+  @include fluid-type(font-size, 20em, 70em, 2rem, 3.157rem);
+  @include fluid-type(padding-bottom padding-top, 20em, 70em, 1em, 1em);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
 }
 
 h2{
-  font-family: 'Proxima Nova bold';
-  line-height:1.25;
+  font-family: 'Proxima Nova';
+  line-height:1.5;
   font-size:2em;
+  @include fluid-type(font-size, 20em, 70em, 1.333rem, 1.777rem);
   @include fluid-type(padding-bottom padding-top, 20em, 70em, 0.5em, 0.5em);
   text-align:center;
 }
@@ -148,6 +162,7 @@ p{
 .wrapper{
   width:93.75%;
   margin: 0 auto;
+  max-width:1280px;
 }
 
 // SECTIONS
@@ -157,12 +172,20 @@ section h1{
 
 section p{
   text-align:center;
-  max-width:600px;
+  max-width:800px;
   margin: 0 auto;
 }
 
 section.intro,section.more_about{
   @include fluid-type(padding-bottom padding-top, 20em, 70em, 10em, 14em);
+  h1{
+    max-width:960px;
+    margin:0 auto;
+  }
+  h2{
+    max-width:960px;
+    margin:0 auto;
+  }
 }
 
 section.opening{
@@ -182,8 +205,8 @@ section.opening{
     width:98vw;
     margin:1vw 1vw 0;
   }
-  h1{
-    @include fluid-type(font-size, 20em, 70em, 2em, 2.369em);
+  h1.main-title{
+    @include fluid-type(font-size, 20em, 70em, 2.369rem, 4.209rem);
     letter-spacing:1px;
     position:absolute;
     line-height:1;
@@ -192,19 +215,16 @@ section.opening{
     text-align:left;
     margin:0 auto;
     color:#fff;
-    width:93.75%;
-    text-align:center;
-    margin-left:3.125%;
-    margin-right:3.125%;
+    margin:0 auto;
+    float:left;
     span{
+      font-family: 'Proxima Nova bold';
       color:$yellow;
+      font-size:85%;
     }
-    @include bp(babybear){
-      text-align:left;
-      margin-left:14%;
-      margin-right:0;
-      background-position:10% center;
-      width:auto;
+    @include bp(mamabear){
+     
+
     }
   }
 }
@@ -221,8 +241,8 @@ section.projects{
   }
 
    @include bp(grandpabear){
-     // max-width:1500px;
-     // margin: 0 auto;
+     max-width:1500px;
+     margin: 0 auto;
   }
 
 
