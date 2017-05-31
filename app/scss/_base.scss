@@ -130,7 +130,7 @@ html {
 h1 {
   font-family: 'Helvetica Neue Bold';
   line-height:1.25;
-  @include fluid-type(font-size, 20em, 70em, 2rem, 3.157rem);
+  @include fluid-type(font-size, 20em, 100em, 2rem, 3.157rem);
   @include fluid-type(padding-bottom padding-top, 20em, 70em, 1em, 1em);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -141,7 +141,7 @@ h2{
   font-family: 'Proxima Nova';
   line-height:1.5;
   font-size:2em;
-  @include fluid-type(font-size, 20em, 70em, 1.333rem, 1.777rem);
+  @include fluid-type(font-size, 20em, 100em, 1.333rem, 1.777rem);
   @include fluid-type(padding-bottom padding-top, 20em, 70em, 0.5em, 0.5em);
   text-align:center;
 }
@@ -151,7 +151,7 @@ p{
   font-family: 'Proxima Nova';
   font-size:1.125em;
   line-height:1.5;
-  @include fluid-type(padding-bottom, 20em, 70em, 0.5em, 0.5em);
+  @include fluid-type(padding-bottom, 20em, 100em, 0.5em, 0.5em);
 }
 
 
@@ -206,7 +206,6 @@ section.opening{
     margin:1vw 1vw 0;
   }
   h1.main-title{
-    @include fluid-type(font-size, 20em, 70em, 2.369rem, 4.209rem);
     letter-spacing:1px;
     position:absolute;
     line-height:1;
