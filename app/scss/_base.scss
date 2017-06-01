@@ -1,5 +1,59 @@
 
 
+// 75.757px
+// 4.735em
+
+// 67.34px
+// 4.209em
+
+// 56.832px
+// 3.552em
+
+// 50.517px
+// 3.157em
+
+// 42.635px
+// 2.665em
+
+// 37.897px
+// 2.369em
+
+// 31.984px
+// 1.999em
+
+// 28.43px
+// 1.777em
+
+// 23.994px
+// 1.5em
+
+// 21.328px
+// 1.333em
+
+// 18px
+// 1.125em
+
+// 16px
+// 1em
+
+// 13.503px
+// 0.844em
+
+// 12.003px
+// 0.75em
+
+// 10.13px
+// 0.633em
+
+// 9.005px
+// 0.563em
+
+// 7.599px
+// 0.475em
+
+// 6.755px
+// 0.422em
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -118,6 +172,7 @@ html {
   background-color:#f5f5f5;
    box-sizing: border-box;
    color:#0F1626;
+   font-family: 'Proxima Nova';
 }
 
 *, *:before, *:after {
@@ -130,20 +185,21 @@ html {
 h1 {
   font-family: 'Helvetica Neue Bold';
   line-height:1.25;
-  @include fluid-type(font-size, 20em, 100em, 2rem, 3.157rem);
+  @include fluid-type(font-size, 20rem, 100rem, 1.777rem, 2.665rem);
   @include fluid-type(padding-bottom padding-top, 20em, 70em, 1em, 1em);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 
 h2{
   font-family: 'Proxima Nova';
   line-height:1.5;
   font-size:2em;
-  @include fluid-type(font-size, 20em, 100em, 1.333rem, 1.777rem);
+  @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.777rem);
   @include fluid-type(padding-bottom padding-top, 20em, 70em, 0.5em, 0.5em);
   text-align:center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -151,7 +207,10 @@ p{
   font-family: 'Proxima Nova';
   font-size:1.125em;
   line-height:1.5;
-  @include fluid-type(padding-bottom, 20em, 100em, 0.5em, 0.5em);
+  @include fluid-type(font-size, 20rem, 100rem, 1rem, 1rem);
+  @include fluid-type(padding-bottom, 20em, 70em, 1em, 1em);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -165,28 +224,37 @@ p{
   max-width:1280px;
 }
 
-// SECTIONS
-section h1{
-    text-align:center;
+section.opening .wrapper{
+    width:72%;
 }
 
-section p{
-  text-align:center;
-  max-width:800px;
-  margin: 0 auto;
+
+a{
+  cursor:pointer;
+  text-decoration:none;
 }
+
+span.line {
+  display: inline-block;
+}
+
+
+
+
+// SECTIONS
+
+
 
 section.intro,section.more_about{
-  @include fluid-type(padding-bottom padding-top, 20em, 70em, 10em, 14em);
-  h1{
-    max-width:960px;
-    margin:0 auto;
-  }
-  h2{
-    max-width:960px;
-    margin:0 auto;
+  @include fluid-type(padding-bottom padding-top, 20rem, 100rem, 8rem, 14rem);
+  text-align:center;
+  .wrapper{
+    max-width:600px;
+    width:80%;
   }
 }
+
+
 
 section.opening{
   height:90vh;
@@ -194,18 +262,21 @@ section.opening{
   background-position:50%;
   background-size:cover;
   background-repeat:no-repeat;
-  width:94vw;
-  margin:3vw 3vw 0;
+  width:100%;
+  // margin:3vw 3vw 0;
   position:relative;
   @include bp(babybear){
-    width:97vw;
-    margin:1.5vw 1.5vw 0;
+    // width:97vw;
+    // margin:1.5vw 1.5vw 0;
   }
   @include bp(grandpabear){
-    width:98vw;
-    margin:1vw 1vw 0;
+    // width:98vw;
+    // margin:1vw 1vw 0;
   }
-  h1.main-title{
+
+  .main-title{
+    @include fluid-type(font-size, 20rem, 100rem, 2rem, 3.157rem);
+    font-family: 'Helvetica Neue Bold';
     letter-spacing:1px;
     position:absolute;
     line-height:1;
@@ -231,8 +302,8 @@ section.opening{
 
 section.projects{
   @include clearfix();
-  width:94vw;
-  margin:0 3vw;
+  width:100vw;
+  // margin:0 3vw;
   
   @include bp(babybear){
     width:99vw;
@@ -240,12 +311,9 @@ section.projects{
   }
 
    @include bp(grandpabear){
-     max-width:1500px;
+     max-width:1280px;
      margin: 0 auto;
   }
-
-
-
 
   .project{
     width:100%;
@@ -253,14 +321,12 @@ section.projects{
     position:relative;
     background-size:100%;
     overflow:hidden;
-    margin:1.5vw 0;
+    margin:0.5vw 0;
 
     @include bp(babybear){
-        width:48%;
-        margin:1vw 1%;
-
+        width:49.5%;
+        margin:0.25vw 0.25%;
     }
-
     img{
       width:100%;
       float:left;
@@ -269,9 +335,6 @@ section.projects{
     
   }
   
-
-
-
   .button{
     font-family: 'Proxima Nova';
     font-size:1.125em;
@@ -302,12 +365,10 @@ section.projects{
   // .yukfoo .button:hover{background-color:#c9423c;}
 
  
-
- 
-  .kaha .button{background-color:#06457F;}
-  .br .button{background-color:#160516;}
-  .loaf .button{background-color:#1B0804;}
-  .yukfoo .button{background-color:#961E1B;}
+  // .kaha .button{background-color:#06457F;}
+  // .br .button{background-color:#160516;}
+  // .loaf .button{background-color:#1B0804;}
+  // .yukfoo .button{background-color:#961E1B;}
 }
 
 
@@ -318,7 +379,7 @@ section.projects{
   text-align:center;
   display:inline-block;
   width:100%;
-  @include fluid-type(margin-top, 20em, 70em, 3em, 3em);
+  @include fluid-type(padding-bottom padding-top, 20em, 70em, 1em, 1em);
   a{
     background-color:$yellow;
     border:1px solid transparent;
@@ -358,6 +419,11 @@ section.contact{
 }
 
 
+
+
+
+//PROJECTS
+
 section.project_wrapper{
   width:100%;
   margin:0 auto;
@@ -368,14 +434,101 @@ section.project_wrapper{
 }
 
 
+.main.project{
+  .project_intro{
+    background-position:50% 0;
+    background-size:cover;
+    background-repeat:no-repeat;
+    // width:94vw;
+    width:100%;
+    // margin:3vw 3vw 0;
+    position:relative;
+    @include fluid-type(padding-bottom, 20em, 70em, 4em, 4em);
+    // @include bp(babybear){
+    //   width:97vw;
+    //   margin:1.5vw 1.5vw 0;
+    // }
+    // @include bp(grandpabear){
+    //   width:98vw;
+    //   margin:1vw 1vw 0;
+    // }
+
+    .home_logo{
+      @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.5rem);
+      @include fluid-type(padding, 20rem, 100rem, 1rem, 1rem);
+      font-family: 'Helvetica Neue Bold';
+      position:absolute;
+      float:left;
+      color:#fff;
+    }
+
+    .wrapper{
+      width:90%;
+      max-width:960px;
+    }
+
+    .flexbox_container{
+      @include bp(babybear){
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+        width:100%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+    }
+
+
+
+    .left_panel{
+      color:#fff;
+      @include bp(babybear){
+        width:33.33%;
+        text-align:right;
+      }
+    }
+
+    .right_panel{
+      color:#fff;
+      @include bp(babybear){
+        width:56.52%;
+      }
+    }
+
+    .skills{
+      line-height:1.5;
+      @include fluid-type(font-size, 20rem, 100rem, 1rem, 1rem);
+      @include fluid-type(padding-bottom, 20em, 70em, 2em, 2em);
+    }
+
+    h1{
+      color:#fff;
+      text-align:center;
+      @include fluid-type(padding-top, 20em, 70em, 4em, 4em);
+      @include fluid-type(padding-bottom, 20em, 70em, 3em, 3em);
+      max-width:800px;
+      width:90%;
+      margin:0 auto;
+    }
+  }
+}
 
 
 
 
+//PROJECT SPECIFIC
 
-
-
-
+.main.project.yukfoo .project_intro{
+  background-color: linear-gradient(-180deg, #E7423B 0%, #CC3730 100%);
+  background-image: url("../../dist/images/intropaper_yukfoo.jpg");
+  .yukfoo_logo{
+    @include fluid-type(padding-bottom, 20em, 70em, 1em,1em);
+    @include fluid-type(width, 20em, 70em, 7em, 7em);
+  }
+  
+}
 
 
 
