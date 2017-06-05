@@ -185,19 +185,28 @@ html {
 h1 {
   font-family: 'Helvetica Neue Bold';
   line-height:1.25;
-  @include fluid-type(font-size, 20rem, 100rem, 1.777rem, 2.665rem);
-  @include fluid-type(padding-bottom padding-top, 20em, 70em, 1em, 1em);
+  @include fluid-type(font-size, 20rem, 100rem, 1.777rem, 3.157rem);
+  @include fluid-type(padding-bottom padding-top, 20em, 70em, 0.5em, 0.5em);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h2{
   font-family: 'Proxima Nova';
-  line-height:1.5;
+  line-height:1.25;
   font-size:2em;
-  @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.777rem);
+  @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.333rem);
   @include fluid-type(padding-bottom padding-top, 20em, 70em, 0.5em, 0.5em);
-  text-align:center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+h3 {
+  font-family: 'Helvetica Neue Bold';
+  line-height:1.25;
+  @include fluid-type(font-size, 20rem, 100rem, 1.777rem, 1.999rem);
+  @include fluid-type(padding-bottom padding-top, 20em, 70em, 0.5em, 0.5em);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -247,10 +256,13 @@ span.line {
 
 section.intro,section.more_about{
   @include fluid-type(padding-bottom padding-top, 20rem, 100rem, 8rem, 14rem);
-  text-align:center;
+  // text-align:center;
   .wrapper{
-    max-width:600px;
+    max-width:800px;
     width:80%;
+  }
+  p{
+    max-width:392px;
   }
 }
 
@@ -302,8 +314,8 @@ section.opening{
 
 section.projects{
   @include clearfix();
-  width:100vw;
-  // margin:0 3vw;
+  width:98vw;
+  margin:0 1vw;
   
   @include bp(babybear){
     width:99vw;
@@ -322,53 +334,56 @@ section.projects{
     background-size:100%;
     overflow:hidden;
     margin:0.5vw 0;
+    transition: all 200ms ease-out;
 
     @include bp(babybear){
         width:49.5%;
         margin:0.25vw 0.25%;
     }
-    img{
+    .backing_prev{
       width:100%;
       float:left;
     }
-
     
   }
-  
-  .button{
-    font-family: 'Proxima Nova';
-    font-size:1.125em;
-    line-height:1.5;
-    text-decoration:none;
-    color:#fff;
+
+  .logo_prev{
     position:absolute;
-    z-index:1;
-    border:1px solid #fff;
-    text-align:center;
-    border-radius:2px;
-    @include fluid-type(padding-top padding-bottom, 20em, 70em, 0.5em, 0.5em);
-    @include fluid-type(width, 20em, 70em, 7em, 7em);
-    @include fluid-type(bottom, 20em, 70em, 2em, 3em);
-    transition: all .5s ease-out;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-    width:auto;
+    z-index:2;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    transition: all 400ms ease-out;
   }
+  .kaha .logo_prev{width:5rem;}
+  .yukfoo .logo_prev{width:8rem;}
+  .loaf .logo_prev{width:8rem;}
+  .br .logo_prev{width:6rem;}
+  
+  .overlay{
+    opacity:0.3;
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    transition: opacity 300ms ease-out;
+    }
 
- 
+  .loaf .overlay{background-color:#000;}
+  .yukfoo .overlay{background-color:#C31D17;}
+  .br .overlay{background-color:#2E0A2D;}
+  .kaha .overlay{background-color:#004997;}
 
-
-  // .kaha .button:hover{background-color:#081c2f;}
-  // .br .button:hover{background-color:#631663;}
-  // .loaf .button:hover{background-color:#692010;}
-  // .yukfoo .button:hover{background-color:#c9423c;}
-
- 
-  // .kaha .button{background-color:#06457F;}
-  // .br .button{background-color:#160516;}
-  // .loaf .button{background-color:#1B0804;}
-  // .yukfoo .button{background-color:#961E1B;}
+  .project:hover{
+    .overlay{
+      opacity:0;
+    }
+    .logo_prev{
+      transform:translate(-50%,-50%) scale(1.05,1.05);
+      transform-origin: center center;
+    }
+  }
 }
 
 
@@ -434,69 +449,49 @@ section.project_wrapper{
 }
 
 
+
+//PROJECT PAGES GENERAL
+
 .main.project{
-  .project_intro{
-    background-position:50% 0;
-    background-size:cover;
-    background-repeat:no-repeat;
-    // width:94vw;
-    width:100%;
-    // margin:3vw 3vw 0;
-    position:relative;
-    @include fluid-type(padding-bottom, 20em, 70em, 4em, 4em);
-    // @include bp(babybear){
-    //   width:97vw;
-    //   margin:1.5vw 1.5vw 0;
-    // }
-    // @include bp(grandpabear){
-    //   width:98vw;
-    //   margin:1vw 1vw 0;
-    // }
-
-    .home_logo{
-      @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.5rem);
-      @include fluid-type(padding, 20rem, 100rem, 1rem, 1rem);
-      font-family: 'Helvetica Neue Bold';
-      position:absolute;
-      float:left;
-      color:#fff;
-    }
-
-    .wrapper{
+  .wrapper{
       width:90%;
       max-width:960px;
     }
 
-    .flexbox_container{
-      @include bp(babybear){
-        display:flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        position: relative;
-        width:100%;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-      }
+    .wrapper.text{
+      width:82%;
+      max-width:885px;
     }
+  .project_intro{
+    @include fluid-type(padding-bottom, 20em, 70em, 6em, 6em);
+    color:#fff;
+    background-position:50% 0;
+    background-size:100% auto;
+    background-repeat:no-repeat;
+    width:100%;
+    position:relative;
 
 
 
-    .left_panel{
+    .home_logo{
+      @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.5rem);
+      @include fluid-type(padding-top padding-left, 20rem, 100rem, 1rem, 2rem);
+      font-family: 'Helvetica Neue Bold';
+      position:absolute;
+      z-index:2;
+      float:left;
       color:#fff;
-      @include bp(babybear){
-        width:33.33%;
-        text-align:right;
-      }
     }
 
-    .right_panel{
-      color:#fff;
-      @include bp(babybear){
-        width:56.52%;
-      }
+    .background-blur{
+      position:absolute;
+      bottom:0;
+      width:100%;
+      height:60%;
+      filter: blur(4vw);
     }
 
+    
     .skills{
       line-height:1.5;
       @include fluid-type(font-size, 20rem, 100rem, 1rem, 1rem);
@@ -511,9 +506,63 @@ section.project_wrapper{
       max-width:800px;
       width:90%;
       margin:0 auto;
+      position:relative;
+      z-index:1;
     }
   }
+
+  .project_image{
+    width:100%;
+  }
+
+  .project_segments{
+    background-color:#f5f5f5;
+    position:relative;
+    z-index:1;
+    section{
+      @include fluid-type(padding-bottom padding-top, 20em, 70em, 3em, 3em);
+    }
+
+  }
 }
+
+
+
+
+.flexbox_container{
+    h3{
+      padding-top:0;
+    }
+      @include bp(babybear){
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+        width:100%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      .left_panel{
+       z-index:1;
+       position:relative;
+      @include bp(babybear){
+        width:33.33%;
+      }
+    }
+    .right_panel{
+       position:relative;
+       z-index:1;
+      h2{
+        padding-top:0;
+      }
+      @include bp(babybear){
+        width:56.52%;
+      }
+    }
+}
+
+    
 
 
 
@@ -521,13 +570,33 @@ section.project_wrapper{
 //PROJECT SPECIFIC
 
 .main.project.yukfoo .project_intro{
-  background-color: linear-gradient(-180deg, #E7423B 0%, #CC3730 100%);
+  background-color: #CC3730;
   background-image: url("../../dist/images/intropaper_yukfoo.jpg");
+  .background-blur{background-color:rgba(204,55,48,0.5);}
   .yukfoo_logo{
     @include fluid-type(padding-bottom, 20em, 70em, 1em,1em);
     @include fluid-type(width, 20em, 70em, 7em, 7em);
-  }
-  
+  } 
+}
+
+.main.project.loaf .project_intro{
+  background-color: #000;
+  background-image: url("../../dist/images/intropaper_loaf.jpg");
+  .background-blur{background-color:rgba(0,0,0,0.5);}
+  .yukfoo_logo{
+    @include fluid-type(padding-bottom, 20em, 70em, 1em,1em);
+    @include fluid-type(width, 20em, 70em, 7em, 7em);
+  } 
+}
+
+.main.project.br .project_intro{
+  background-color:rgba(48,16,47,1);
+  background-image: url("../../dist/images/intropaper_br.jpg");
+  .background-blur{background-color:rgba(48,16,47,0.8);}
+  .yukfoo_logo{
+    @include fluid-type(padding-bottom, 20em, 70em, 1em,1em);
+    @include fluid-type(width, 20em, 70em, 7em, 7em);
+  } 
 }
 
 
