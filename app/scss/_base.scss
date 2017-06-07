@@ -263,6 +263,45 @@ span.line {
  
 }
 
+.noise_container{
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+      &:before{
+        content: '';
+        position: absolute;
+        top: -100%;
+        left: -100%;
+        height: 300%;
+        width: 300%;
+        background: url(../../dist/images/noise.png);
+        pointer-events: none;
+        display: block;
+        opacity: .6;
+        animation: grain 2s steps(10) infinite;
+
+      }
+}
+
+@-webkit-keyframes grain{
+  0%,to{transform:translate(0);transform:translate(0)}
+  10%{transform:translate(-5%,-10%);transform:translate(-5%,-10%)}
+  20%{transform:translate(-15%,5%);transform:translate(-15%,5%)}
+  30%{transform:translate(7%,-25%);transform:translate(7%,-25%)}
+  40%{transform:translate(21%,25%);transform:translate(21%,25%)}
+  50%{transform:translate(-25%,10%);transform:translate(-25%,10%)}
+  60%{transform:translate(15%,5%);transform:translate(15%,5%)}
+  70%{transform:translateY(15%);transform:translateY(15%)}
+  80%{transform:translate(25%,35%);transform:translate(25%,35%)}
+  90%{transform:translate(-10%,10%);transform:translate(-10%,10%)}
+}
+
+
 
 
 
@@ -294,7 +333,7 @@ span.line {
         right:0;
         
         a{
-          @include fluid-type(font-size, 20rem, 100rem, 1rem, 0.75rem);
+          @include fluid-type(font-size, 20rem, 100rem, 1rem, 1rem);
           font-family: 'Proxima Nova semibold';
           color:#fff; 
           position:relative;
@@ -350,12 +389,10 @@ section.opening{
   // margin:3vw 3vw 0;
   position:relative;
   @include bp(babybear){
-    // width:97vw;
-    // margin:1.5vw 1.5vw 0;
+    background-position:60% 50%;
   }
   @include bp(grandpabear){
-    // width:98vw;
-    // margin:1vw 1vw 0;
+    background-position:70% 50%;
   }
 
   .main-title{
@@ -551,13 +588,15 @@ section.project_wrapper{
 
 
   .project_intro{
-    @include fluid-type(padding-bottom, 20em, 70em, 6em, 6em);
+    @include fluid-type(padding-bottom, 20em, 70em, 6em, 8em);
     color:#fff;
     background-position:50% 0;
     background-size:100% auto;
     background-repeat:no-repeat;
     width:100%;
     position:relative;
+
+    
 
     .background-blur_container{
       position:absolute;
@@ -566,7 +605,6 @@ section.project_wrapper{
       height:100%;
       overflow:hidden;
     }
-
 
     .background-blur{
       position:absolute;
