@@ -282,7 +282,7 @@ span.line {
         background: url(../../dist/images/noise.png);
         pointer-events: none;
         display: block;
-        opacity: .6;
+        opacity: .3;
         animation: grain 2s steps(10) infinite;
 
       }
@@ -380,7 +380,7 @@ section.intro,section.more_about{
 
 
 section.opening{
-  height:80vh;
+  height:90vh;
   background-image: url("../../dist/images/GregProfilepic.jpg");
   background-position:50%;
   background-size:cover;
@@ -394,6 +394,8 @@ section.opening{
   @include bp(grandpabear){
     background-position:70% 50%;
   }
+
+
 
   .main-title{
     @include fluid-type(font-size, 20rem, 100rem, 2rem, 3.157rem);
