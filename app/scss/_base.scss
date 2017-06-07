@@ -212,12 +212,23 @@ h3 {
 }
 
 
+
+h4 {
+  font-family: 'Helvetica Neue Bold';
+  line-height:1.25;
+  @include fluid-type(font-size, 20rem, 100rem, 1.555rem, 1.777rem);
+  @include fluid-type(padding-bottom padding-top, 20em, 70em, 0.5em, 0.5em);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
 p{
   font-family: 'Proxima Nova';
   font-size:1.125em;
   line-height:1.5;
   @include fluid-type(font-size, 20rem, 100rem, 1rem, 1rem);
-  @include fluid-type(padding-bottom, 20em, 70em, 1em, 1em);
+  @include fluid-type(padding-bottom padding-top, 20em, 70em, 1em, 1em);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -241,35 +252,96 @@ section.opening .wrapper{
 a{
   cursor:pointer;
   text-decoration:none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 span.line {
-  display: inline-block;
+  @include bp(babybear){
+     display: inline-block;
+  }
+ 
 }
 
 
 
+
+//NAVIGATION
+
+.home_logo{
+      @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.5rem);
+      @include fluid-type(padding-top, 20rem, 100rem, 1rem, 2rem);
+      letter-spacing:0.5px;
+      font-family: 'Helvetica Neue Bold';
+      float:left;
+      color:#fff;
+      position:relative;
+      &:hover{
+
+      }
+    }
+
+    .navigation{
+      position: absolute;
+      z-index:2;
+      width:100%;
+    }
+
+    .right_nav{ 
+        @include fluid-type(padding-top, 20rem, 100rem, 1.5rem, 2rem);
+        letter-spacing:0.5px;
+        float:right;
+        right:0;
+        
+        a{
+          @include fluid-type(font-size, 20rem, 100rem, 1rem, 0.75rem);
+          font-family: 'Proxima Nova semibold';
+          color:#fff; 
+          position:relative;
+          &:after{
+            content:'';
+            position:absolute;
+            left:0;
+            right:0;
+            border:1px solid #fff;
+            bottom:calc(-1rem);
+            transform:scale(0,0);
+            transform-origin: left top;
+            transition: transform 0.2s ease-out;
+          }
+            &:hover:after{
+            transform:scale(1,1);
+          }
+        }
+    }
 
 // SECTIONS
 
 
 
 section.intro,section.more_about{
-  @include fluid-type(padding-bottom padding-top, 20rem, 100rem, 8rem, 14rem);
+  @include fluid-type(padding-bottom padding-top, 20rem, 100rem, 8rem, 12rem);
   // text-align:center;
   .wrapper{
-    max-width:800px;
+    max-width:960px;
     width:80%;
   }
   p{
-    max-width:392px;
+
+    padding-right:20%;
+    @include fluid-type(font-size, 20rem, 100rem, 1rem, 1.125rem);
+    @include bp(mamabear){
+      padding-right:30%;
+    }
+
   }
+
 }
 
 
 
 section.opening{
-  height:90vh;
+  height:80vh;
   background-image: url("../../dist/images/GregProfilepic.jpg");
   background-position:50%;
   background-size:cover;
@@ -314,17 +386,22 @@ section.opening{
 
 section.projects{
   @include clearfix();
-  width:98vw;
-  margin:0 1vw;
+    width:90vw;
+    margin:0 5vw;
   
   @include bp(babybear){
     width:99vw;
     margin:0 0.5vw;
   }
 
-   @include bp(grandpabear){
-     max-width:1280px;
-     margin: 0 auto;
+   @include bp(papabear){
+    width:99.5vw;
+    margin:0 0.25vw;
+    background-color:#e6e6e6;
+  }
+
+  @include bp(grandpabear){
+    background-color:transparent;
   }
 
   .project{
@@ -333,13 +410,23 @@ section.projects{
     position:relative;
     background-size:100%;
     overflow:hidden;
-    margin:0.5vw 0;
+    margin:3vw 0;
     transition: all 200ms ease-out;
+    &:focus{outline:none;}
 
     @include bp(babybear){
         width:49.5%;
         margin:0.25vw 0.25%;
     }
+    @include bp(papabear){
+        width:33.08%;
+        margin:0.125vw 0.125%;
+    }
+    @include bp(grandpabear){
+        width:24.75%;
+    }
+
+
     .backing_prev{
       width:100%;
       float:left;
@@ -356,12 +443,12 @@ section.projects{
     transition: all 400ms ease-out;
   }
   .kaha .logo_prev{width:5rem;}
-  .yukfoo .logo_prev{width:8rem;}
+  .yukfoo .logo_prev{width:7rem;}
   .loaf .logo_prev{width:8rem;}
   .br .logo_prev{width:6rem;}
   
   .overlay{
-    opacity:0.3;
+    opacity:0.5;
     position:absolute;
     top:0;
     bottom:0;
@@ -384,6 +471,11 @@ section.projects{
       transform-origin: center center;
     }
   }
+
+  .project:active{
+    .overlay{background-color:$yellow;}
+
+  }
 }
 
 
@@ -391,10 +483,9 @@ section.projects{
 
 
 .icons_container{
-  text-align:center;
   display:inline-block;
-  width:100%;
-  @include fluid-type(padding-bottom padding-top, 20em, 70em, 1em, 1em);
+  @include fluid-type(padding-bottom padding-top, 20em, 70em, 2em, 2em);
+  a:first-child{margin-left:0!important;}
   a{
     background-color:$yellow;
     border:1px solid transparent;
@@ -402,36 +493,25 @@ section.projects{
     display: inline-block;
     vertical-align:middle;
     transition: all 0.5s ease-out;
-    padding:1em;
-    border-radius:4px;
-    @include fluid-type(width height, 20rem, 70rem, 4rem, 4rem);
-    @include fluid-type(margin-left margin-right, 20em, 70em, 0.5em, 0.5em);
+    padding:1rem;
+    width:4rem;
+    height:4rem;
+    @include fluid-type(margin-left margin-right, 20em, 70em, 0.25em, 0.5em);
     
       svg{
         margin-top: 50%;
         transform: translateY(-50%);
+        width:100%;
       }
       &:hover{
-        background-color:$darkblue;
-        g{fill:$yellow;}
+        // background-color:$darkblue;
+        // g{fill:$yellow;}
       }
   }
 }
 
 
-section.contact{
-  background-image: url("../../dist/images/footer_back.jpg");
-  @include fluid-type(padding-bottom padding-top, 20em, 70em, 6em, 8em);
-  background-size:cover;
-  color:#fff;
-  a{
-    color:$yellow;
-    text-decoration:none;
-    &:hover{
-      text-decoration:underline;
-    }
-  }
-}
+
 
 
 
@@ -452,6 +532,8 @@ section.project_wrapper{
 
 //PROJECT PAGES GENERAL
 
+
+
 .main.project{
   .wrapper{
       width:90%;
@@ -462,6 +544,12 @@ section.project_wrapper{
       width:82%;
       max-width:885px;
     }
+
+    footer .wrapper{
+      max-width:1280px;
+    }
+
+
   .project_intro{
     @include fluid-type(padding-bottom, 20em, 70em, 6em, 6em);
     color:#fff;
@@ -471,17 +559,14 @@ section.project_wrapper{
     width:100%;
     position:relative;
 
-
-
-    .home_logo{
-      @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.5rem);
-      @include fluid-type(padding-top padding-left, 20rem, 100rem, 1rem, 2rem);
-      font-family: 'Helvetica Neue Bold';
+    .background-blur_container{
       position:absolute;
-      z-index:2;
-      float:left;
-      color:#fff;
+      bottom:0;
+      width:100%;
+      height:100%;
+      overflow:hidden;
     }
+
 
     .background-blur{
       position:absolute;
@@ -491,11 +576,31 @@ section.project_wrapper{
       filter: blur(4vw);
     }
 
+    .project_title{
+      font-family: 'Helvetica Neue Bold';
+      border-top:2px solid #FFF;
+      line-height:1.25;
+      @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.777rem);
+      @include fluid-type(padding-top, 20em, 70em, 1em, 1em);
+      @include fluid-type(padding-bottom, 20em, 70em, 0.5em, 0.5em);
+      -webkit-font-smoothing: antialiased;
+      @include bp(babybear){
+        border-top:none;
+        padding-top:0;
+      }
+    }
+
+
     
     .skills{
-      line-height:1.5;
-      @include fluid-type(font-size, 20rem, 100rem, 1rem, 1rem);
-      @include fluid-type(padding-bottom, 20em, 70em, 2em, 2em);
+      line-height:2;
+      text-transform:uppercase;
+      @include fluid-type(font-size, 20rem, 100rem, 0.844rem, 0.844rem);
+      @include fluid-type(padding-bottom, 20em, 70em, 3em, 2em);
+      @include fluid-type(letter-spacing, 20em, 70em, 0.25em, 0.25em);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+
     }
 
     h1{
@@ -516,13 +621,16 @@ section.project_wrapper{
   }
 
   .project_segments{
-    background-color:#f5f5f5;
-    position:relative;
     z-index:1;
+    @include fluid-type(padding-top, 20em, 70em, 4em, 4em);
     section{
       @include fluid-type(padding-bottom padding-top, 20em, 70em, 3em, 3em);
     }
 
+  }
+
+  footer{
+    @include fluid-type(margin-top, 20em, 70em, 8em, 8em);
   }
 }
 
@@ -562,6 +670,55 @@ section.project_wrapper{
     }
 }
 
+
+
+footer{
+  @include fluid-type(padding-bottom padding-top, 20em, 70em, 1em, 1em);
+  background-color:$yellow;
+  display:inline-block;
+  width:100%;
+
+  a{color:$darkblue;}
+    
+  .footer_home{
+    font-family: 'Helvetica Neue Bold';
+    @include fluid-type(font-size, 20rem, 100rem, 1.5rem, 1.5rem);
+    padding-top:0;
+    @include bp(babybear){
+      display:inline-block;
+      padding-bottom:0;
+    }
+  }
+
+  .contactdets{
+    vertical-align:baseline;
+    @include fluid-type(margin-bottom, 20em, 70em, 0.5em, 0.5em);
+    @include bp(babybear){
+      display:inline-block;
+      margin-bottom:0;
+    }
+  }
+
+  .mobile,.email{
+    @include fluid-type(font-size, 20rem, 100rem, 0.844rem, 0.844rem);
+    @include fluid-type(padding-bottom padding-top, 20em, 70em, 0.5em, 0.5em);
+    cursor:pointer;
+    width:100%;
+    float:left;
+    @include bp(babybear){
+      padding:0;
+      float:none;
+      width:auto;
+      margin-left:1rem;
+    }
+
+  }
+}
+
+.project.kaha footer{background-color:$kaha-color;a{color:#fff;}}
+.project.yukfoo footer{background-color:$yukfoo-color;a{color:#fff;}}
+.project.loaf footer{background-color:$loaf-color;a{color:#fff;}}
+.project.br footer{background-color:$br-color;a{color:#fff;}}
     
 
 
@@ -583,9 +740,9 @@ section.project_wrapper{
   background-color: #000;
   background-image: url("../../dist/images/intropaper_loaf.jpg");
   .background-blur{background-color:rgba(0,0,0,0.5);}
-  .yukfoo_logo{
+  .loaf_logo{
     @include fluid-type(padding-bottom, 20em, 70em, 1em,1em);
-    @include fluid-type(width, 20em, 70em, 7em, 7em);
+    @include fluid-type(width, 20em, 70em, 8em, 8em);
   } 
 }
 
@@ -593,9 +750,19 @@ section.project_wrapper{
   background-color:rgba(48,16,47,1);
   background-image: url("../../dist/images/intropaper_br.jpg");
   .background-blur{background-color:rgba(48,16,47,0.8);}
-  .yukfoo_logo{
-    @include fluid-type(padding-bottom, 20em, 70em, 1em,1em);
-    @include fluid-type(width, 20em, 70em, 7em, 7em);
+  .br_logo{
+    @include fluid-type(padding-bottom, 20em, 70em, 1em,2em);
+    @include fluid-type(width, 20em, 70em, 6em, 5em);
+  } 
+}
+
+.main.project.kaha .project_intro{
+  background-color:rgba(20,139,223,1);
+  background-image: url("../../dist/images/intropaper_kaha.jpg");
+  .background-blur{background-color:rgba(20,139,223,0.8);}
+  .kaha_logo{
+    @include fluid-type(padding-bottom, 20em, 70em, 1em,2em);
+    @include fluid-type(width, 20em, 70em, 5em, 5em);
   } 
 }
 
