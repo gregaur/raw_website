@@ -154,7 +154,42 @@ table {
 }
 
 @font-face {
-  font-family: 'Helvetica Neue Bold';
+  font-family: 'fontastic';
+  src: url('../../dist/fonts/fontastic.eot');
+  src: url('../../dist/fonts/fontastic.eot?#iefix') format('embedded-opentype'),
+  url('../../dist/fonts/fontastic.woff') format('woff'),
+  url('../../dist/fonts/fontastic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// [class^="icon-"]:before,
+// [class*=" icon-"]:before {
+//   font-family: "untitled-font-1" !important;
+//   font-style: normal !important;
+//   font-weight: normal !important;
+//   font-variant: normal !important;
+//   text-transform: none !important;
+//   speak: none;
+//   line-height: 1;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
+
+// .icon-mail:before {
+//   content: "\62";
+// }
+// .icon-phone:before {
+//   content: "\61";
+// }
+
+
+
+
+@font-face {
+  font-family:'Helvetica Neue Bold';
   src: url('../../dist/fonts/helvetica-neue-bold.eot');
   src: url('../../dist/fonts/helvetica-neue-bold.eot?#iefix') format('embedded-opentype'),
   url('../../dist/fonts/helvetica-neue-bold.woff2') format('woff2'),
@@ -195,7 +230,7 @@ h2{
   font-family: 'Proxima Nova';
   line-height:1.25;
   font-size:2em;
-  @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.333rem);
+  @include fluid-type(font-size, 20rem, 100rem, 1.51rem, 1.5rem);
   @include fluid-type(padding-bottom padding-top, 20em, 70em, 0.5em, 0.5em);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -247,6 +282,13 @@ p{
 section.opening .wrapper{
     width:72%;
 }
+
+ .main.project footer .wrapper{
+    max-width:1280px;  
+}
+
+
+
 
 
 a{
@@ -379,6 +421,30 @@ section.intro,section.more_about{
 
 
 
+.mobile,.email{
+  font-family: 'Proxima Nova semibold';
+  @include fluid-type(font-size, 20rem, 100rem, 1rem, 1rem);
+  @include fluid-type(letter-spacing, 20rem, 100rem, 0.025rem, 0.025rem);
+  color:$darkblue;
+  &:before{
+    font-family:"fontastic";
+    display:inline-block;
+    vertical-align:bottom;
+   @include fluid-type(margin-right, 20rem, 100rem, 0.5rem,0.5rem);
+  }
+}
+
+.mobile:before{ 
+  content: "\61"; 
+}
+
+.email:before{
+  content: "\62"; 
+}
+
+
+
+
 section.opening{
   height:80vh;
   background-image: url("../../dist/images/GregProfilepic.jpg");
@@ -386,7 +452,6 @@ section.opening{
   background-size:cover;
   background-repeat:no-repeat;
   width:100%;
-  // margin:3vw 3vw 0;
   position:relative;
   @include bp(babybear){
     background-position:60% 50%;
@@ -413,11 +478,9 @@ section.opening{
       color:$yellow;
       font-size:85%;
     }
-    @include bp(mamabear){
-     
-
-    }
   }
+
+
 }
 
 
@@ -582,9 +645,7 @@ section.project_wrapper{
       max-width:885px;
     }
 
-    footer .wrapper{
-      max-width:1280px;
-    }
+
 
 
   .project_intro{
@@ -658,18 +719,38 @@ section.project_wrapper{
     width:100%;
   }
 
-  .project_segments{
+}
+
+.project_segments{
     z-index:1;
     @include fluid-type(padding-top, 20em, 70em, 4em, 4em);
     section{
       @include fluid-type(padding-bottom padding-top, 20em, 70em, 3em, 3em);
     }
 
-  }
+    section.dbl_paddingtop{
+      @include fluid-type(padding-top, 20em, 70em, 6em, 6em);
+    }
 
-  footer{
-    @include fluid-type(margin-top, 20em, 70em, 8em, 8em);
-  }
+    section.blue_back{
+      background-image: url(../../dist/images/intropaper_kaha.jpg);
+      background-size:cover;
+      color:#fff;
+    }
+
+    section.lightgray_back{
+      background-color:#E6E9EC;
+
+    }
+    section.no_padding_bottom{
+      padding-bottom:0;
+    }
+}
+
+.project_screen{
+  width:100%;
+  padding-top:2rem;
+  margin-bottom:-3px;
 }
 
 
@@ -702,6 +783,9 @@ section.project_wrapper{
       h2{
         padding-top:0;
       }
+      p{
+        padding-top:0;
+      }
       @include bp(babybear){
         width:56.52%;
       }
@@ -715,43 +799,48 @@ footer{
   background-color:$yellow;
   display:inline-block;
   width:100%;
+  position:relative;
+  @include bp(babybear){
+    padding-bottom:0;
+  }
 
   a{color:$darkblue;}
+
     
   .footer_home{
     font-family: 'Helvetica Neue Bold';
     @include fluid-type(font-size, 20rem, 100rem, 1.5rem, 1.5rem);
-    padding-top:0;
-    @include bp(babybear){
-      display:inline-block;
-      padding-bottom:0;
-    }
+    @include fluid-type(padding-bottom, 20rem, 100rem, 1rem, 1rem);
+    display:inline-block;
+    text-align:right;
   }
 
   .contactdets{
-    vertical-align:baseline;
-    @include fluid-type(margin-bottom, 20em, 70em, 0.5em, 0.5em);
-    @include bp(babybear){
-      display:inline-block;
-      margin-bottom:0;
-    }
-  }
-
-  .mobile,.email{
-    @include fluid-type(font-size, 20rem, 100rem, 0.844rem, 0.844rem);
-    @include fluid-type(padding-bottom padding-top, 20em, 70em, 0.5em, 0.5em);
-    cursor:pointer;
-    width:100%;
+    display:inline-block;
+    
     float:left;
     @include bp(babybear){
-      padding:0;
-      float:none;
-      width:auto;
+      float:right;
+    }
+
+
+  }
+
+  .mobile,.email{  
+    @include fluid-type(padding-top, 20rem, 100rem, 0.375rem, 0.375rem);
+    margin-right:1rem;
+    display:inline-block;
+
+    @include bp(babybear){
+      margin-right:0;
       margin-left:1rem;
     }
 
   }
 }
+
+  
+
 
 .project.kaha footer{background-color:$kaha-color;a{color:#fff;}}
 .project.yukfoo footer{background-color:$yukfoo-color;a{color:#fff;}}
