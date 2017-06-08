@@ -324,7 +324,7 @@ span.line {
         background: url(../../dist/images/noise.png);
         pointer-events: none;
         display: block;
-        opacity: .3;
+        opacity: .4;
         animation: grain 2s steps(10) infinite;
 
       }
@@ -342,6 +342,27 @@ span.line {
   80%{transform:translate(25%,35%);transform:translate(25%,35%)}
   90%{transform:translate(-10%,10%);transform:translate(-10%,10%)}
 }
+
+
+
+
+.backing_strips{
+  @include bp(babybear){
+    position:absolute;
+    background-image: url("../../dist/images/backing_strips.svg");
+    background-size: contain;
+    z-index: 1;
+    background-repeat: no-repeat;
+    left: -50%;
+    bottom: -50%;
+    display:block;
+    bottom: 0%;
+    width: 130%;
+    height: 130%;
+  }
+}
+
+
 
 
 
@@ -375,7 +396,7 @@ span.line {
         right:0;
         
         a{
-          @include fluid-type(font-size, 20rem, 100rem, 1rem, 1rem);
+          @include fluid-type(font-size, 20rem, 100rem, 1rem, 0.844rem);
           font-family: 'Proxima Nova semibold';
           color:#fff; 
           position:relative;
@@ -402,25 +423,44 @@ span.line {
 
 section.intro,section.more_about{
   @include fluid-type(padding-bottom padding-top, 20rem, 100rem, 8rem, 12rem);
-  // text-align:center;
-  .wrapper{
-    max-width:960px;
-    width:80%;
+  position:relative;
+  z-index:2;  
+  @include bp(babybear){
+    background-image: url("../../dist/images/backing_strips.svg");
+     z-index: 1;
   }
-
+  
+  .wrapper{
+      max-width:960px;
+      width:80%;
+  }
   p{
 
     padding-right:20%;
     @include fluid-type(font-size, 20rem, 100rem, 1rem, 1.125rem);
-    padding-top:0;
     @include bp(mamabear){
-      padding-right:30%;
+      padding-left:10%;
     }
 
   }
 
 }
 
+section.intro{
+    @include bp(babybear){
+      background-size: 150%;
+      background-repeat: no-repeat;
+      background-position: 0;
+  }
+}
+
+section.more_about{
+    @include bp(babybear){
+      background-size: 130%;
+      background-repeat: no-repeat;
+      background-position: 217% 96%;
+  }
+}
 
 
 .mobile,.email{
@@ -448,7 +488,7 @@ section.intro,section.more_about{
 
 
 section.opening{
-  height:90vh;
+  height:95vh;
   background-image: url("../../dist/images/GregProfilepic.jpg");
   background-position:50%;
   background-size:cover;
@@ -468,6 +508,7 @@ section.opening{
     @include fluid-type(font-size, 20rem, 100rem, 2rem, 3.157rem);
     font-family: 'Helvetica Neue Bold';
     letter-spacing:1px;
+    z-index:2;
     position:absolute;
     line-height:1;
     top:50%;
@@ -484,24 +525,50 @@ section.opening{
     }
   }
 
-  .scroll_down:before{
-    font-family: 'fontastic';
-    @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.333rem);
-    @include fluid-type(padding-bottom, 20rem, 100rem, 2rem, 2rem);
-    content: "\63"; 
-    color:#fff;
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-    margin:0; 
-    bottom:0;
-  }
-
+  // .scroll_down{
+  //     @include fluid-type(margin-bottom, 20rem, 100rem, 1.777rem, 1.777rem);
+  //     opacity:0.8;
+  //     padding:5px;
+  //     color:#fff;
+  //     position:absolute;
+  //     z-index:2;
+  //     left:50%;
+  //     transform:translateX(-50%);
+  //     bottom:0;
+  //     border:1px solid #fff;
+  //     width:50px;
+  //     height:50px;
+  //     display: inline-block;
+  //     text-align: center;
+  //     border-radius:2px;
+  //     @include bp(babybear){
+  //       opacity:0.8;
+  //       width:46px;
+  //       height:46px;
+  //     }
+  //   &:before{
+  //     font-family: 'fontastic';
+  //     @include fluid-type(font-size, 20rem, 100rem, 1rem, 0.844rem);
+  //     content: "\63"; 
+  //     display: inline-block;
+  //     vertical-align:bottom;
+  //     position:absolute;
+  //     left:0;
+  //     right:0;
+  //     top:50%;
+  //     transform:translateY(-50%);
+  //   }
+  //   &:hover{
+  //     opacity:1;
+  //   }
+  // }
 
 }
 
 
 section.projects{
+  position:relative;
+  z-index:1;
   @include clearfix();
     width:90vw;
     margin:0 5vw;
@@ -606,6 +673,12 @@ section.projects{
   display:inline-block;
   @include fluid-type(padding-bottom padding-top, 20em, 70em, 2em, 2em);
   a:first-child{margin-left:0!important;}
+
+  @include bp(mamabear){
+      padding-left:10%;
+    }
+
+
   a{
     background-color:$yellow;
     border:1px solid transparent;

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1291px" height="843px" style="opacity: .3;" viewBox="0 0 1291 843" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 15</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="1316" height="926"></rect>
+        <linearGradient x1="93.3012702%" y1="25%" x2="10.7397678%" y2="72.6669057%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#121620" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="97.2200595%" y1="6.04726669%" x2="42.8386802%" y2="56.7729471%" id="linearGradient-4">
+            <stop stop-color="#AB987A" stop-opacity="0.134425951" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.144333107" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(0.000000, -40.000000)">
+            <g id="Group-15">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Mask"></g>
+                <g mask="url(#mask-2)">
+                    <g transform="translate(0.000000, 40.000000)">
+                        <polyline id="Rectangle-Copy-7" fill="url(#linearGradient-3)" opacity="0.111413043" points="1229.55089 8.12982196 1291 113.887496 130.219089 779.812423 68.7699758 674.054749"></polyline>
+                        <polyline id="Rectangle-Copy-6" fill="url(#linearGradient-4)" points="1217.28373 156.34273 1263.49201 235.870001 205.629589 842.751928 159.421308 763.224656"></polyline>
+                        <polyline id="Rectangle-Copy-8" fill="#0F1626" opacity="0.149286685" points="1057.86242 0 1104.0707 79.5272714 46.2082811 686.409198 -1.02318154e-12 606.881926"></polyline>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
