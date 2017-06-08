@@ -407,10 +407,12 @@ section.intro,section.more_about{
     max-width:960px;
     width:80%;
   }
+
   p{
 
     padding-right:20%;
     @include fluid-type(font-size, 20rem, 100rem, 1rem, 1.125rem);
+    padding-top:0;
     @include bp(mamabear){
       padding-right:30%;
     }
@@ -423,8 +425,8 @@ section.intro,section.more_about{
 
 .mobile,.email{
   font-family: 'Proxima Nova semibold';
-  @include fluid-type(font-size, 20rem, 100rem, 1rem, 1rem);
-  @include fluid-type(letter-spacing, 20rem, 100rem, 0.025rem, 0.025rem);
+  @include fluid-type(font-size, 20rem, 100rem, 1rem, 0.844rem);
+  @include fluid-type(letter-spacing, 20rem, 100rem, 0.01rem, 0.01rem);
   color:$darkblue;
   &:before{
     font-family:"fontastic";
@@ -480,6 +482,19 @@ section.opening{
       color:$yellow;
       font-size:85%;
     }
+  }
+
+  .scroll_down:before{
+    font-family: 'fontastic';
+    @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.333rem);
+    @include fluid-type(padding-bottom, 20rem, 100rem, 2rem, 2rem);
+    content: "\63"; 
+    color:#fff;
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    margin:0; 
+    bottom:0;
   }
 
 
@@ -550,14 +565,17 @@ section.projects{
   .br .logo_prev{width:6rem;}
   
   .overlay{
-    opacity:0.5;
+    opacity:0;
     position:absolute;
     top:0;
     bottom:0;
     right:0;
     left:0;
     transition: opacity 300ms ease-out;
+    @include bp(babybear){
+       opacity:0.5;
     }
+  }
 
   .loaf .overlay{background-color:#000;}
   .yukfoo .overlay{background-color:#C31D17;}
@@ -797,13 +815,13 @@ section.project_wrapper{
 
 
 footer{
-  @include fluid-type(padding-bottom padding-top, 20em, 70em, 1em, 1em);
+  @include fluid-type(padding-bottom padding-top, 20em, 70em, 1.333em, 1.333em);
   background-color:$yellow;
   display:inline-block;
   width:100%;
   position:relative;
   @include bp(babybear){
-    padding-bottom:0;
+    // padding-bottom:0;
   }
 
   a{color:$darkblue;}
@@ -812,7 +830,7 @@ footer{
   .footer_home{
     font-family: 'Helvetica Neue Bold';
     @include fluid-type(font-size, 20rem, 100rem, 1.5rem, 1.5rem);
-    @include fluid-type(padding-bottom, 20rem, 100rem, 1rem, 1rem);
+    @include fluid-type(padding-bottom, 20rem, 100rem, 0.5rem, 0.5rem);
     display:inline-block;
     text-align:right;
   }

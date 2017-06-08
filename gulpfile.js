@@ -57,6 +57,7 @@ gulp.task('sass', function(){
   return gulp.src('app/scss/styles.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer())
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(sourcemaps.write('../../maps'))
     .pipe(gulp.dest('dist/css'))
