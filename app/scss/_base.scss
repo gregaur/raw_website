@@ -288,10 +288,16 @@ section.opening .wrapper{
 }
 
 
+ .main .menu_overlay .wrapper,.main.project .menu_overlay .wrapper{
+   width:80%;
+   max-width:600px;  
+}
+
 
 
 
 a{
+  color:$darkblue;
   cursor:pointer;
   text-decoration:none;
   -webkit-font-smoothing: antialiased;
@@ -370,6 +376,170 @@ span.line {
 
 //NAVIGATION
 
+.menu_icon_container{
+  position:fixed;
+  right:1rem;
+  top:1rem;
+  z-index:11;
+  width:3.5rem;
+  height:3.2rem;
+  background-color:rgba(15,22,38,0.05);
+  cursor:pointer;
+  overflow:hidden;
+  @include bp(babybear){
+    right:1rem;
+  top:1rem;
+  }
+
+  &:after{
+    content:'';
+    background-color:$yellow;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:-1;
+    transform:translateX(-120%);
+    transition:transform 0.2s ease-out;
+  }
+  &:hover:after{
+    transform:translateX(0);
+  }
+}
+
+
+
+
+.menu_icon{
+  position:relative;
+  width:3.5rem;
+  height:3.2rem;
+  float:left;
+
+}
+
+.menustrips{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    &>div{
+      width:30px;
+      margin-top:5px;
+      height:3px;
+      background-color:#fff;
+       &:first-child{
+        margin-top:0;
+      }
+    }
+  }
+
+
+.menu_overlay.hidden{
+  visibility: hidden;
+  opacity: 0;
+  // transition: visibility 0s linear 300ms, opacity 500ms;
+}
+
+
+.menu_overlay{
+  background-color:rgba(255,255,255,0.97);
+  position:fixed;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  z-index:10;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s ease-out 0s, opacity 800ms;
+
+
+
+  .menu_content_container{
+    position:absolute;
+    top:45%;
+    left:50%;
+    transform:translate(-50%,-50%);
+  }
+
+
+  .menu_title{
+      position:relative;
+      font-family: 'Helvetica Neue Bold';
+      @include fluid-type(font-size, 20rem, 100rem, 2.369rem, 2.369rem);
+      @include fluid-type(padding, 20rem, 100rem, 1rem, 1rem);
+      display:block;
+      overflow:hidden;
+      line-height:1;
+      @include hover-effect(); //&:hover:after
+  }
+
+  .menu_project_heading{
+    font-family: 'Proxima Nova semiBold';
+    @include fluid-type(font-size, 20rem, 100rem, 1rem, 0.75rem);
+    letter-spacing:2px;
+    display:block;
+    @include fluid-type(margin-top margin-bottom, 20rem, 100rem, 1rem, 1rem);
+    @include fluid-type(padding, 20rem, 100rem, 1rem, 1rem);
+    position:relative;
+    display:inline-block;
+    overflow:hidden;
+    @include hover-effect(); //&:hover:after
+  }
+
+  .menu_projects{
+    
+  }
+
+  .menu_projects a{
+    font-family: 'Proxima Nova bold';
+    position:relative;
+    letter-spacing:1px;
+     @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 0.75rem);
+     text-transform:uppercase;
+    display:inline-block;
+    line-height:1;
+    @include fluid-type(margin-bottom, 20rem, 100rem, 0.5rem,0.5rem);
+    @include fluid-type(padding, 20rem, 100rem, 1rem, 1rem);
+    overflow:hidden;
+    @include hover-effect(); //&:hover:after
+  }
+
+  .menu_social{
+    @include fluid-type(padding-top, 20rem, 100rem, 1rem, 1rem);
+     @include fluid-type(margin-top, 20rem, 100rem, 1rem, 1rem);
+    border-top:1px solid $darkblue;
+    li{
+      display:inline-block;
+      padding:1rem;
+      position:relative;
+      overflow:hidden;
+      @include hover-effect(); //&:hover:after
+    }
+    
+    
+    a{
+      position:relative;
+      display:inline-block;
+      @include fluid-type(height width, 20rem, 100rem, 2.369rem, 1.333rem);
+      background-size:contain;
+      background-position:center;
+      background-repeat:no-repeat;
+      
+      &.icon_link{background-image: url("../../dist/images/icon_linked.svg");}
+      &.icon_twit{background-image: url("../../dist/images/icon_twit.svg");}
+      &.icon_insta{background-image: url("../../dist/images/icon_insta.svg");}
+    }
+
+  }
+}
+
+
+
+
+
 .home_logo{
       @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.5rem);
       @include fluid-type(padding-top, 20rem, 100rem, 1rem, 2rem);
@@ -425,42 +595,24 @@ section.intro,section.more_about{
   @include fluid-type(padding-bottom padding-top, 20rem, 100rem, 8rem, 12rem);
   position:relative;
   z-index:2;  
-  @include bp(babybear){
-    background-image: url("../../dist/images/backing_strips.svg");
-     z-index: 1;
-  }
-  
   .wrapper{
-      max-width:960px;
+      max-width:900px;
       width:80%;
   }
   p{
 
-    padding-right:20%;
+    
     @include fluid-type(font-size, 20rem, 100rem, 1rem, 1.125rem);
-    @include bp(mamabear){
-      padding-left:10%;
+    @include bp(mamabear){  
+      
+      padding-right:30%;
     }
 
   }
 
 }
 
-section.intro{
-    @include bp(babybear){
-      background-size: 150%;
-      background-repeat: no-repeat;
-      background-position: 0;
-  }
-}
 
-section.more_about{
-    @include bp(babybear){
-      background-size: 130%;
-      background-repeat: no-repeat;
-      background-position: 217% 96%;
-  }
-}
 
 
 .mobile,.email{
@@ -570,8 +722,8 @@ section.projects{
   position:relative;
   z-index:1;
   @include clearfix();
-    width:90vw;
-    margin:0 5vw;
+    width:92vw;
+    margin:0 4vw;
   
   @include bp(babybear){
     width:99vw;
@@ -675,7 +827,7 @@ section.projects{
   a:first-child{margin-left:0!important;}
 
   @include bp(mamabear){
-      padding-left:10%;
+     
     }
 
 

@@ -81,7 +81,24 @@
     }
 }
 
-
+@mixin hover-effect() {
+  &:after{
+      content:'';
+      background-color:$yellow;
+      position:absolute;
+      top:-15px;
+      bottom:-15px;
+      left:-15px;
+      right:-15px;
+      z-index:-15;
+      transform:translateX(-120%);
+      transition:transform 0.2s ease-out;
+    }
+    &:hover:after{
+      transform:translateX(0);
+    }
+    
+}
 
 
 
