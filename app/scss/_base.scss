@@ -802,6 +802,11 @@ section.projects{
     }
     @include bp(mamabear){
       width:30%;
+      visibility:hidden;
+      position:fixed;
+      &.skrollable-between{
+        visibility:initial;
+      }
     }
     
     @include bp(papabear){
