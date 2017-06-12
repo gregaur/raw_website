@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="description" content="">
+    <meta name="description" content="Rawlinson">
     <meta name="keywords" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Greg Rawlinson">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
 
@@ -19,8 +19,7 @@
 
 
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="dist/js/all.min.js"></script>
+    
   </head>
   <body>
 
@@ -83,46 +82,86 @@
         <div class="wrapper">
             <div class="main-title">Rawlinson<br><span>UX/UI DESIGN</span></div>
             <a class="scroll_down"></a>
-
         </div>
-        <div class="noise_container">
-        </div>
+        <div class="opening-image"></div>
+        <!-- <div class="noise_container">
+        </div> -->
       </section>
 
       <section class="intro" id="intro">
         <div class="wrapper">
-          <h1>Multidisciplinary Designer.</h1>
+          <h1>Multidisciplinary<br />Designer.</h1>
           <p>Hello, my name is Greg Rawlinson, I'm a UX/UI Designer with a background in graphic design and experience in front-end development.</p>
          
         </div>
       </section>
 
       <section class="projects">
+          <div class="prev_proj_container">
             <a name="projects" class="project kaha" href="dist/projects/kaha.html">
-
-                <img class="logo_prev" src="dist/images/logo_kaha.svg">
+               <!--  <img class="logo_prev" src="dist/images/logo_kaha.svg"> -->
                 <div class="noise_container"></div>
                 <div class="overlay"></div>
-                <img class="backing_prev" src="dist/images/prev_kaha.jpg">
-            </a><!-- 
-         --><a class="project br" href="dist/projects/br.html">
-                 <img class="logo_prev" src="dist/images/logo_br.svg">
-                 <div class="noise_container"></div>
-                 <div class="overlay"></div>
-                <img class="backing_prev" src="dist/images/prev_br.jpg">
-            </a><!-- 
-         --><a class="project loaf"  href="dist/projects/loaf.html">
-               <img class="logo_prev" src="dist/images/logo_loaf.png">
-               <div class="noise_container"></div>
-                 <div class="overlay"></div>
-                <img class="backing_prev" src="dist/images/prev_loaf.jpg">
-            </a><!-- 
-         --><a class="project yukfoo" href="dist/projects/yukfoo.html">
-                <img class="logo_prev" src="dist/images/logo_yukfoo.svg">
-                <div class="noise_container"></div>
-                 <div class="overlay"></div>
-                <img class="backing_prev" src="dist/images/prev_yukfoo.jpg">
+                <img class="backing_prev" src="dist/images/prev_kaha.jpg"
+                  data-anchor-target=".project.kaha"
+                  data-top-bottom="transform: translateY(20%);" 
+                  data-bottom-top="transform: translateY(-25%);">
             </a>
+            <a class="prev_textblock">
+              <div class="title">Kaha</div>
+              <div class="year">2015-2017</div>
+              <p class="description">UX/UI Designer as well as some front end development</p>
+            </a>
+          </div>
+          <div class="prev_proj_container">
+            <a class="project br" href="dist/projects/br.html">
+               <!--  <img class="logo_prev" src="dist/images/logo_br.svg"> -->
+                <div class="noise_container"></div>
+                <div class="overlay"></div>
+                <img class="backing_prev" src="dist/images/prev_br.jpg"
+                data-anchor-target=".project.br"
+                  data-top-bottom="transform: translateY(20%);" 
+                  data-bottom-top="transform: translateY(-25%);">
+            </a>
+            <a class="prev_textblock">
+              <div class="title">Beauty Review</div>
+              <div class="year">2015-2017</div>
+              <p class="description">UX/UI Designer as well as some front end development</p>
+            </a>
+          </div>
+          <div class="prev_proj_container">
+            <a class="project loaf"  href="dist/projects/loaf.html">
+                <!-- <img class="logo_prev" src="dist/images/logo_loaf.png"> -->
+                <div class="noise_container"></div>
+                <div class="overlay"></div>
+                <img class="backing_prev" src="dist/images/prev_loaf.jpg"
+                data-anchor-target=".project.loaf"
+                  data-top-bottom="transform: translateY(20%);" 
+                  data-bottom-top="transform: translateY(-25%);">
+            </a>
+            <a class="prev_textblock">
+              <div class="title">Loaf</div>
+              <div class="year">2015-2017</div>
+              <p class="description">UX/UI Designer as well as some front end development</p>
+            </a>
+          </div>
+          <div class="prev_proj_container">
+            <a class="project yukfoo" href="dist/projects/yukfoo.html">
+                <!-- <img class="logo_prev" src="dist/images/logo_yukfoo.svg"> -->
+                <div class="noise_container"></div>
+                <div class="overlay"></div>
+                <img class="backing_prev" src="dist/images/prev_yukfoo.jpg"
+                data-anchor-target=".project.yukfoo"
+                  data-top-bottom="transform: translateY(20%);" 
+                  data-bottom-top="transform: translateY(-25%);">
+            </a>
+            <a class="prev_textblock">
+              <div class="title">Yukfoo</div>
+              <div class="year">2015-2017</div>
+              <p class="description">UX/UI Designer as well as some front end development</p>
+            </a>
+          </div>
+             
       </section>
 
       <section class="more_about">
@@ -192,6 +231,7 @@
               <a class="email" href="mailto:sgregraw@hotmail.com" target="_top">gregraw@hotmail.com</a>
             </div>
         </div>
+
       </footer>
 
 
@@ -206,5 +246,14 @@
 
        
       </div><!-- main closed -->
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+       <script src="dist/js/all.min.js"></script>
+      <script>
+        if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)){
+              skrollr.init({
+                  forceHeight: false
+              });
+          }
+      </script>
   </body>
 </html>

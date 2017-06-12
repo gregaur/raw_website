@@ -280,7 +280,10 @@ p{
 }
 
 section.opening .wrapper{
-    width:72%;
+    width:80%;
+    @include bp(mamabear){
+      width:50.625%;
+    }
 }
 
  .main.project footer .wrapper{
@@ -605,14 +608,18 @@ section.intro,section.more_about{
   .wrapper{
       max-width:900px;
       width:80%;
+      
+      @include bp(mamabear){
+        width:50.625%;
+      }
   }
   p{
 
     
     @include fluid-type(font-size, 20rem, 100rem, 1rem, 1.125rem);
     @include bp(mamabear){  
-      
-      padding-right:30%;
+      margin-left:11.1%;
+     
     }
 
   }
@@ -647,7 +654,7 @@ section.intro,section.more_about{
 
 
 section.opening{
-  height:95vh;
+  height:90vh;
   background-image: url("../../dist/images/GregProfilepic.jpg");
   background-position:50%;
   background-size:cover;
@@ -660,6 +667,7 @@ section.opening{
   @include bp(grandpabear){
     background-position:70% 50%;
   }
+
 
 
 
@@ -729,70 +737,139 @@ section.projects{
   position:relative;
   z-index:1;
   @include clearfix();
-    width:92vw;
-    margin:0 4vw;
+    width:93.5vw;
+    margin:0 3.125vw;
   
   @include bp(babybear){
-    width:99vw;
-    margin:0 0.5vw;
+    // width:99vw;
+    // margin:0 0.5vw;
   }
 
-   @include bp(papabear){
-    width:99.5vw;
-    margin:0 0.25vw;
-    background-color:#e6e6e6;
+  //  @include bp(papabear){
+  //   width:99.5vw;
+  //   margin:0 0.25vw;
+  //   background-color:#e6e6e6;
+  // }
+
+  // @include bp(grandpabear){
+  //   background-color:transparent;
+  // }
+
+  div.prev_proj_container:first-child{margin-top:0;}
+
+  .prev_proj_container{
+    position:relative;
+    clear:both;
+    float:left;
+    width:100%;
+    @include bp(babybear){
+      @include fluid-type(margin-bottom margin-top, 20em, 70em, 4rem, 6rem);
+    }
+
+
+    .title{
+      font-family: 'Helvetica Neue Bold';
+      @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 2.369rem);
+      @include fluid-type(padding-bottom, 20em, 70em, 1rem, 1.5rem);
+      @include fluid-type(padding-top, 20em, 70em, 1rem, 2rem);
+      display:inline-block;
+      @include bp(babybear){
+        display:block;
+      }
+    }
+
+    .year{
+      @include fluid-type(font-size, 20rem, 100rem, 1rem, 1rem);
+      display:inline-block;
+    }
+    p{
+      @include fluid-type(padding-top, 20em, 70em, 0.5rem, 1.5rem);
+      @include fluid-type(padding-bottom, 20em, 70em, 2rem, 2rem);
+    }
+
+    
   }
 
-  @include bp(grandpabear){
-    background-color:transparent;
+  .prev_textblock{
+    @include bp(babybear){
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      left:6.875%;
+    }
+    @include bp(babybear){
+      width:41.408%;
+    }
+    @include bp(mamabear){
+      width:30%;
+    }
+    
+    @include bp(papabear){
+      left:22%;
+      width:31.798%;
+    }
   }
+
+  
 
   .project{
     width:100%;
+    padding-top:61.805%;
+     height:0;
     float:left;
     position:relative;
     background-size:100%;
     overflow:hidden;
-    margin:3vw 0;
+    max-width:640px;
     transition: all 200ms ease-out;
     &:focus{outline:none;}
 
     @include bp(babybear){
-        width:49.5%;
-        margin:0.25vw 0.25%;
+        width:44.39%;
+        float:right;
+        height:0;
+        padding-top:27.497%;
     }
-    @include bp(papabear){
-        width:33.08%;
-        margin:0.125vw 0.125%;
-    }
-    @include bp(grandpabear){
-        width:24.75%;
+    @include bp(mamabear){
+        width:54%;
+        padding-top:33.375%;
     }
 
+    @include bp(papabear){
+        width:44.39%;
+        padding-top:27.497%;
+    }
 
     .backing_prev{
-      width:100%;
-      float:left;
+
+        position:absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;
+       width:100%;
+        float:left;
     }
     
   }
 
-  .logo_prev{
-    position:absolute;
-    z-index:2;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    transition: all 400ms ease-out;
-  }
-  .kaha .logo_prev{width:5rem;}
-  .yukfoo .logo_prev{width:7rem;}
-  .loaf .logo_prev{width:8rem;}
-  .br .logo_prev{width:6rem;}
+  // .logo_prev{
+  //   position:absolute;
+  //   z-index:2;
+  //   left:50%;
+  //   top:50%;
+  //   transform:translate(-50%,-50%);
+  //   transition: all 400ms ease-out;
+  // }
+  // .kaha .logo_prev{width:5rem;}
+  // .yukfoo .logo_prev{width:7rem;}
+  // .loaf .logo_prev{width:8rem;}
+  // .br .logo_prev{width:6rem;}
   
   .overlay{
     opacity:0;
     position:absolute;
+    z-index:1;
     top:0;
     bottom:0;
     right:0;
