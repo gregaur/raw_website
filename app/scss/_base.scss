@@ -802,10 +802,15 @@ section.projects{
     }
     @include bp(mamabear){
       width:30%;
-      visibility:hidden;
       position:fixed;
+      visibility: hidden;
+      // opacity: 0;
+      // transition: visibility 0s linear 200ms, opacity 200ms;
+
       &.skrollable-between{
-        visibility:initial;
+        visibility: visible;
+        // opacity: 1;
+        // transition: visibility 0s ease-out 0s, opacity 200ms;
       }
     }
     
@@ -814,6 +819,16 @@ section.projects{
       width:31.798%;
     }
   }
+
+
+
+
+
+
+
+
+
+
 
   
 
