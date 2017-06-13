@@ -746,23 +746,6 @@ section.projects{
   @include clearfix();
     width:93.5vw;
     margin:0 3.125vw;
-  
-  @include bp(babybear){
-    // width:99vw;
-    // margin:0 0.5vw;
-  }
-
-  //  @include bp(papabear){
-  //   width:99.5vw;
-  //   margin:0 0.25vw;
-  //   background-color:#e6e6e6;
-  // }
-
-  // @include bp(grandpabear){
-  //   background-color:transparent;
-  // }
-
-  // div.prev_proj_container:first-child{padding-top:0;}
 
   .prev_proj_container{
     position:relative;
@@ -778,7 +761,7 @@ section.projects{
       font-family: 'Helvetica Neue Bold';
       @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 2.369rem);
       @include fluid-type(padding-bottom, 20em, 70em, 1rem, 1.5rem);
-      @include fluid-type(padding-top, 20em, 70em, 1rem, 2rem);
+      padding-top:0;  
       display:inline-block;
       @include bp(babybear){
         display:block;
@@ -808,14 +791,14 @@ section.projects{
       position:fixed;
       visibility: hidden;
       opacity:0;
-      transition:all 0.2s ease-out;
+      // transition:all 0.2s ease-out;
       // opacity: 0;
       // transition: visibility 0s linear 200ms, opacity 200ms;
 
       &.skrollable-between{
         visibility: visible;
         opacity:1;
-        transition:opacity 0.2s ease-out;
+        // transition:opacity 0.2s ease-out;
         // opacity: 1;
         // transition: visibility 0s ease-out 0s, opacity 200ms;
       }
@@ -829,19 +812,22 @@ section.projects{
       left:22%;
       width:31.798%;
     }
+
+    
+  }
+
+  .kaha .prev_textblock{
+      transform:translate(0%, 0%);
+
+      &.skrollable-between{
+        transform:translate(0%, -50%);
+        transition:all 0.5s ease-out;
+      }
   }
 
 
 
 
-
-
-
-
-
-
-
-  
 
   .project{
     width:100%;
