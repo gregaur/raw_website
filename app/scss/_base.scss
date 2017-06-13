@@ -614,7 +614,7 @@ section.intro,section.more_about{
       width:80%;
   }
   p{
-
+    padding-top:0;
     
     @include fluid-type(font-size, 20rem, 100rem, 1rem, 1.125rem);
     @include bp(mamabear){  
