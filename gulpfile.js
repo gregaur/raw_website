@@ -38,13 +38,11 @@ gulp.task('js',function(){
         presets: ['es2015']
     }))
     .pipe(concat('all.js'))
-    //.pipe(uglify())
+    .pipe(uglify())
     .pipe(rename("all.min.js"))
     .pipe(gulp.dest('dist/js'))
     .pipe(browserSync.stream());
 });
-
-
 
 
 gulp.task('rawli-sass', ['sass'],function(){
