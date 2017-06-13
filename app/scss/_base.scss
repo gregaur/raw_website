@@ -304,6 +304,13 @@ a{
   -moz-osx-font-smoothing: grayscale;
 }
 
+a.underline{
+  text-decoration:underline;
+  &:hover{
+    text-decoration: none;
+  }
+}
+
 span.line {
   @include bp(babybear){
      display: inline-block;
