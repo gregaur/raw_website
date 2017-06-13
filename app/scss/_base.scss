@@ -621,7 +621,7 @@ section.intro,section.more_about{
       }
   }
   p{
-
+    padding-top:0;
     
     @include fluid-type(font-size, 20rem, 100rem, 1rem, 1.125rem);
     @include bp(mamabear){  

@@ -26,12 +26,14 @@ $(document).ready(function () {
 
 
 
+
 });
 
 
 
-$(window).bind("load", function() {
 
+
+$(window).bind("load", function() {
 
 	$.preloadImages = function() {
 		  for (var i = 0; i < arguments.length; i++) {
@@ -60,8 +62,11 @@ $(window).bind("load", function() {
 			"dist/images/project_yf_3.jpg",
 			"dist/images/project_br_1.jpg",
 			"dist/images/project_br_2.jpg");
+
 });
 
 
 		
-	     
+
+
+
