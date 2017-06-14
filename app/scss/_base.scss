@@ -415,6 +415,21 @@ span.line {
 
 
 
+.name-link{
+  display:none;
+  @include bp(mamabear){
+    @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.333rem);
+    display:block;
+    top:1rem;
+    left:1rem;
+    font-family: 'Helvetica Neue Bold';
+    position:fixed;
+    color:$darkblue;
+  }
+  
+}
+
+
 .menu_icon{
   position:relative;
   width:60px;
@@ -654,21 +669,18 @@ section.intro,section.more_about{
   .main-title{
     opacity:0;
     transform:translate(0%,100%);
-    span{
-      opacity:0;
-    }
   }
+  .sub-title{
+    opacity:0;
+  }
+
   .backing_strips{
     transform:translate(100%,100%) rotate(90deg);
     opacity:0;
   }
 }
 
-.initialise{
-    .topstrip{transform:translate(200%,0);}
-    .midstrip{transform:translate(200%,0);}
-    .bottomstrip{transform:translate(200%,0);}
-}
+
 
 
 .backing_strips{
@@ -696,6 +708,7 @@ section.opening{
   background-color: #020406;
   width:100%;
   position:relative;
+  z-index:1;
   &:after{
     content:'';
     position:absolute;
@@ -718,31 +731,37 @@ section.opening{
   }
 
 
-
-  .main-title{
-    @include fluid-type(font-size, 20rem, 100rem, 2rem, 3.157rem);
-    font-family: 'Helvetica Neue Bold';
-    letter-spacing:1px;
+  .title-container{
     z-index:2;
     position:absolute;
     line-height:1;
     top:50%;
+    transform:translate(0%,-50%);
+  }
+
+  .main-title{
+    @include fluid-type(font-size, 20rem, 100rem, 2rem, 3.157rem);
+    @include fluid-type(letter-spacing, 20rem, 100rem, 0.1rem, 0.1rem);
+    @include fluid-type(padding-bottom, 20rem, 100rem, 0.3rem, 0.3rem);
+    font-family: 'Helvetica Neue Bold'; 
     text-align:left;
     margin:0 auto;
     color:#fff;
     margin:0 auto;
     float:left;
     opacity:1;
-    transform:translate(0%,-50%);
-    transition:opacity 5s ease-out 1s,transform 2s cubic-bezier(0.000, 0.645, 0.565, 1.000) 1s;
-    span{
-      font-family: 'Proxima Nova bold';
-      color:$yellow;
-      font-size:85%;
-      display:block;
-      transition:opacity 2s ease-in 1.5s,transform 2s ease-in 1.5s;
-      opacity:1;
-    }
+    transition:opacity 2s ease-out 1s,transform 2s cubic-bezier(0.000, 0.645, 0.565, 1.000) 1s;
+  }
+  .sub-title{
+    @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 2.2rem);
+    @include fluid-type(letter-spacing, 20rem, 100rem, 0.1rem, 0.1rem);
+    clear:both;
+    float:left;
+    font-family: 'Proxima Nova bold';
+    color:$yellow;
+    display:block;
+    transition:opacity 2s ease-in 2s;
+    opacity:1;
   }
 
 }
@@ -753,8 +772,8 @@ section.projects{
   position:relative;
   z-index:1;
   @include clearfix();
-  width:100vw;
-  margin:0 0vw;
+  width:93.75vw;
+  margin:0 3.125vw;
 }
 
 
@@ -885,23 +904,23 @@ section.projects .project{
   } 
 
   .title{
-    font-family: 'Helvetica Neue Bold';
-    @include fluid-type(font-size, 20rem, 100rem, 1rem, 1.777rem);
+    @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 2rem);
     @include fluid-type(padding-bottom, 20em, 70em, 0.5rem, 1rem);
     @include fluid-type(padding-top, 20em, 70em, 1.5rem, 0rem);
+    font-family: 'Helvetica Neue Bold';
     padding-top:0;  
-    display:inline-block;
     position:relative;
+    display:none;
     @include bp(babybear){
       display:block;
     }
 
     @include bp(babybear){
-      &:after{
-         text-transform:none;
-         @include fluid-type(padding-left, 20em, 70em, 0.5rem, 0.5rem);
-         @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.777rem);
-         vertical-align:top;
+      &:after{ 
+        @include fluid-type(padding-left, 20em, 70em, 0.5rem, 0.5rem);
+        @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.777rem);
+        text-transform:none;
+        vertical-align:middle;
         font-family:"portfolio";
         font-weight:600;
         display:inline-block;
@@ -920,15 +939,16 @@ section.projects .project{
     }
   }
 
-  // .year{
-  //   @include fluid-type(font-size, 20rem, 100rem, 1rem, 1rem);
-  //   display:inline-block;
-  // }
 
   p{
-    @include fluid-type(font-size, 20em, 70em, 0.835rem, 0.835rem);
-    @include fluid-type(padding-bottom, 20em, 70em, 2rem, 2rem);
-    padding-top:0;
+    display:none;
+    @include bp(babybear){
+      display:block;
+      @include fluid-type(font-size, 20em, 70em, 1rem, 0.835rem);
+      @include fluid-type(padding-bottom, 20em, 70em, 2rem, 2rem);
+      padding-top:0;
+    }
+    
   }
 }
 
