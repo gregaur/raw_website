@@ -154,11 +154,11 @@ table {
 }
 
 @font-face {
-  font-family: 'fontastic';
-  src: url('../../dist/fonts/fontastic.eot');
-  src: url('../../dist/fonts/fontastic.eot?#iefix') format('embedded-opentype'),
-  url('../../dist/fonts/fontastic.woff') format('woff'),
-  url('../../dist/fonts/fontastic.ttf') format('truetype');
+  font-family: 'portfolio';
+  src: url('../../dist/fonts/portfolio.eot');
+  src: url('../../dist/fonts/portfolio.eot?#iefix') format('embedded-opentype'),
+  url('../../dist/fonts/portfolio.woff') format('woff'),
+  url('../../dist/fonts/portfolio.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -279,6 +279,10 @@ p{
   max-width:1280px;
 }
 
+
+
+
+
 section.opening .wrapper{
     width:80%;
     @include bp(mamabear){
@@ -362,21 +366,7 @@ span.line {
 
 
 
-.backing_strips{
-  @include bp(babybear){
-    position:absolute;
-    background-image: url("../../dist/images/backing_strips.svg");
-    background-size: contain;
-    z-index: 1;
-    background-repeat: no-repeat;
-    left: -50%;
-    bottom: -50%;
-    display:block;
-    bottom: 0%;
-    width: 130%;
-    height: 130%;
-  }
-}
+
 
 
 
@@ -446,6 +436,7 @@ span.line {
       margin-top:6px;
       height:3px;
       background-color:#fff;
+      transform:translate(0,0);
       transition:background-color 0.5s ease-out,transform 0.3s ease-out;
        &:first-child{
         margin-top:0;
@@ -473,8 +464,6 @@ span.line {
   opacity: 1;
   transition: visibility 0s ease-out 0s, opacity 800ms;
 
-
-
   .menu_content_container{
     position:absolute;
     top:45%;
@@ -493,8 +482,6 @@ span.line {
     display:inline-block;
 
   }
-
-
 
 
 
@@ -642,7 +629,7 @@ section.intro,section.more_about{
   @include fluid-type(letter-spacing, 20rem, 100rem, 0.01rem, 0.01rem);
   color:$darkblue;
   &:before{
-    font-family:"fontastic";
+    font-family:"portfolio";
     display:inline-block;
     vertical-align:bottom;
    @include fluid-type(margin-right, 20rem, 100rem, 0.5rem,0.5rem);
@@ -659,22 +646,76 @@ section.intro,section.more_about{
 
 
 
+.initialise section.opening{
+  &:after{
+    opacity:0;
+  }
+
+  .main-title{
+    opacity:0;
+    transform:translate(0%,100%);
+    span{
+      opacity:0;
+    }
+  }
+  .backing_strips{
+    transform:translate(100%,100%) rotate(90deg);
+    opacity:0;
+  }
+}
+
+.initialise{
+    .topstrip{transform:translate(200%,0);}
+    .midstrip{transform:translate(200%,0);}
+    .bottomstrip{transform:translate(200%,0);}
+}
+
+
+.backing_strips{
+  @include bp(babybear){
+    position:absolute;
+    background-image: url("../../dist/images/backing_strips.svg");
+    background-size: contain;
+    z-index: 1;
+    background-repeat: no-repeat;
+    left: -50%;
+    bottom: -50%;
+    display:block;
+    bottom: 0%;
+    width: 130%;
+    height: 130%;
+    transform:translate(0%,-10%) rotate(0deg);
+    transition:all 2s cubic-bezier(0.000, 0.645, 0.565, 1.000);
+  }
+}
+
+
 
 section.opening{
-  height:90vh;
-  background-image: url("../../dist/images/GregProfilepic.jpg");
-  background-position:50%;
-  background-size:cover;
-  background-repeat:no-repeat;
+  height:100vh;
+  background-color: #020406;
   width:100%;
   position:relative;
+  &:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    background-image: url("../../dist/images/GregProfilepic.jpg");
+    background-position:50%;
+    background-size:cover;
+    background-repeat:no-repeat;
+    opacity:0.6;
+    transition:opacity 4s ease-in;
+  }
   @include bp(babybear){
     background-position:60% 50%;
   }
   @include bp(grandpabear){
     background-position:70% 50%;
   }
-
 
 
 
@@ -686,55 +727,40 @@ section.opening{
     position:absolute;
     line-height:1;
     top:50%;
-    transform:translateY(-50%);
     text-align:left;
     margin:0 auto;
     color:#fff;
     margin:0 auto;
     float:left;
+    opacity:1;
+    transform:translate(0%,-50%);
+    transition:opacity 5s ease-out 1s,transform 2s cubic-bezier(0.000, 0.645, 0.565, 1.000) 1s;
     span{
       font-family: 'Proxima Nova bold';
       color:$yellow;
       font-size:85%;
+      display:block;
+      transition:opacity 2s ease-in 1.5s,transform 2s ease-in 1.5s;
+      opacity:1;
     }
   }
 
 }
 
 
+
 section.projects{
   position:relative;
   z-index:1;
   @include clearfix();
-  width:93.5vw;
-  margin:0 3.125vw;
-
-
-  .project:hover{
-    .overlay{
-      opacity:0;
-    }
-    .logo_prev{
-      transform:translate(-50%,-50%) scale(1.05,1.05);
-      transform-origin: center center;
-    }
-  }
-
-  .project:active{
-    .overlay{background-color:$yellow;}
-
-  }
+  width:100vw;
+  margin:0 0vw;
+}
 
 
 
 
-
-
-
-
-
-
-  .project{
+section.projects .project{
   width:100%;
   padding-top:61.805%;
   height:0;
@@ -788,16 +814,31 @@ section.projects{
     }
   }
 
-  .loaf .overlay{background-color:#000;}
-  .yukfoo .overlay{background-color:#C31D17;}
-  .br .overlay{background-color:#2E0A2D;}
-  .kaha .overlay{background-color:#004997;}
-
-}
+  &:hover .overlay{
+    opacity:0;
+  }
 }
 
 
+.logo_prev{
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  transition: all .4s ease-out;
+}
 
+.kaha .logo_prev{@include fluid-type(width, 20em, 70em, 4rem, 5rem);}
+.yukfoo .logo_prev{@include fluid-type(width, 20em, 70em, 6rem, 7rem);}
+.br .logo_prev{@include fluid-type(width, 20em, 70em, 5rem, 6rem);}
+.loaf .logo_prev{@include fluid-type(width, 20em, 70em, 7rem, 8rem);}
+
+
+.loaf .overlay{background-color:#000;}
+.yukfoo .overlay{background-color:#C31D17;}
+.br .overlay{background-color:#2E0A2D;}
+.kaha .overlay{background-color:#004997;}
 
 
 
@@ -808,14 +849,19 @@ section.projects{
     float:left;
     width:100%;
     @include bp(babybear){
-      @include fluid-type(padding-top, 20em, 70em, 6rem, 15rem);
-      @include fluid-type(padding-bottom, 20em, 70em, 2rem, 5rem);
+      @include fluid-type(padding-top, 20em, 70em, 6rem, 10rem);
+      @include fluid-type(padding-bottom, 20em, 70em, 0rem, 5rem);
     } 
 }
 
 
 .prev_textblock{
+  width:93.75vw;
+  margin:0 3.125vw;
+  float:left;
   @include bp(babybear){
+    width:100vw;
+    margin:0;
     position:absolute;
     top:50%;
     transform:translate(0, -50%);
@@ -840,8 +886,9 @@ section.projects{
 
   .title{
     font-family: 'Helvetica Neue Bold';
-    @include fluid-type(font-size, 20rem, 100rem, 1.5rem, 2.369rem);
-    @include fluid-type(padding-bottom, 20em, 70em, 1rem, 1.5rem);
+    @include fluid-type(font-size, 20rem, 100rem, 1rem, 1.777rem);
+    @include fluid-type(padding-bottom, 20em, 70em, 0.5rem, 1rem);
+    @include fluid-type(padding-top, 20em, 70em, 1.5rem, 0rem);
     padding-top:0;  
     display:inline-block;
     position:relative;
@@ -851,15 +898,17 @@ section.projects{
 
     @include bp(babybear){
       &:after{
-         @include fluid-type(padding-left, 20em, 70em, 0.7rem, 0.7rem);
+         text-transform:none;
+         @include fluid-type(padding-left, 20em, 70em, 0.5rem, 0.5rem);
          @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.777rem);
-         vertical-align:middle;
-        font-family:"fontastic";
+         vertical-align:top;
+        font-family:"portfolio";
+        font-weight:600;
         display:inline-block;
         content:"\63";
-        transform:translateX(-2rem);
+        transform:translateX(-1rem);
         opacity:0;
-        transition:all 0.4s ease-out;
+        transition:opacity 0.4s ease-out, transform 0.4s ease-out;
       }
     } 
   }
@@ -871,24 +920,23 @@ section.projects{
     }
   }
 
-  .year{
-    @include fluid-type(font-size, 20rem, 100rem, 1rem, 1rem);
-    display:inline-block;
-  }
+  // .year{
+  //   @include fluid-type(font-size, 20rem, 100rem, 1rem, 1rem);
+  //   display:inline-block;
+  // }
 
   p{
-    @include fluid-type(font-size, 20em, 70em, 1rem, 1rem);
-    @include fluid-type(padding-top, 20em, 70em, 0.5rem, 1.5rem);
+    @include fluid-type(font-size, 20em, 70em, 0.835rem, 0.835rem);
     @include fluid-type(padding-bottom, 20em, 70em, 2rem, 2rem);
+    padding-top:0;
   }
 }
 
-.prev_textblock:hover .title:after{transform:translateX(1rem);transition:transform 0.2s ease-out;}
+.prev_textblock:hover .title:after{transform:translateX(0.5rem);transition:transform 0.2s ease-out;}
 
 .big_blocktext{
   visibility:hidden;
   @include bp(babybear){
-    visibility:visible;
     @include fluid-type(font-size, 20em, 70em, 10rem, 20rem);
     font-family: 'Helvetica Neue Bold';
     position:fixed;
@@ -898,7 +946,8 @@ section.projects{
     opacity:0;
     transition:opacity 0.5s ease-out;
     &.skrollable-between{
-      opacity:0.8;
+      opacity:1;
+      visibility:visible;
     }
   }
 }
