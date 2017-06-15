@@ -165,26 +165,6 @@ table {
   -moz-osx-font-smoothing: grayscale;
 }
 
-// [class^="icon-"]:before,
-// [class*=" icon-"]:before {
-//   font-family: "untitled-font-1" !important;
-//   font-style: normal !important;
-//   font-weight: normal !important;
-//   font-variant: normal !important;
-//   text-transform: none !important;
-//   speak: none;
-//   line-height: 1;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-// }
-
-// .icon-mail:before {
-//   content: "\62";
-// }
-// .icon-phone:before {
-//   content: "\61";
-// }
-
 
 
 
@@ -220,7 +200,7 @@ html {
 h1 {
   font-family: 'Helvetica Neue Bold';
   line-height:1.25;
-  @include fluid-type(font-size, 20rem, 100rem, 1.777rem, 3.157rem);
+  @include fluid-type(font-size, 20rem, 100rem, 1.777rem, 2.665rem);
   @include fluid-type(padding-bottom padding-top, 20em, 70em, 0.5em, 0.5em);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -260,7 +240,6 @@ h4 {
 
 p{
   font-family: 'Proxima Nova';
-  font-size:1.125em;
   line-height:1.5;
   @include fluid-type(font-size, 20rem, 100rem, 1rem, 1rem);
   @include fluid-type(padding-bottom padding-top, 20em, 70em, 1em, 1em);
@@ -388,12 +367,12 @@ span.line {
   overflow:hidden;
   @include bp(babybear){
     right:1rem;
-  top:1rem;
+    top:1rem;
   }
 
   &:after{
     content:'';
-    background-color:$yellow;
+    background-color:#fff;
     position:absolute;
     top:0;
     bottom:0;
@@ -401,7 +380,7 @@ span.line {
     right:0;
     z-index:-1;
     transform:translateX(-120%);
-    transition:transform 0.2s ease-out;
+    transition:transform 0.2s ease-out,;
   }
 
   @media (hover: hover) {  //this means it will only occur on hover and not touch
@@ -410,24 +389,40 @@ span.line {
   }
 }
 
-.project.br .menu_icon_container:after{background-color:#fff;}
-.project.yukfoo .menu_icon_container:after{background-color:#fff;}
 
 
 
-.name-link{
+
+.homepage_home{
   display:none;
   @include bp(mamabear){
-    @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.333rem);
     display:block;
     top:1rem;
     left:1rem;
-    font-family: 'Helvetica Neue Bold';
     position:fixed;
-    color:$darkblue;
   }
-  
 }
+.name-link{
+    @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 1.333rem);
+    font-family: 'Helvetica Neue Bold';
+    color:$darkblue; 
+    display:inline-block;
+}
+
+.breadcrumb{
+  @include fluid-type(font-size, 20rem, 100rem, 0.633rem, 0.633rem);
+  @include fluid-type(letter-spacing, 20rem, 100rem, 0.05rem, 0.05rem);
+  top:2rem;
+  display:block;
+  position:absolute;
+  opacity:0;
+  transition:opacity 0.5s ease-out, transform 0.5s ease-out;
+  transform:translateX(-100%) ;
+}
+
+.homepage_home.skrollable-between .breadcrumb.project{transform:translateX(0);opacity:1;}
+.homepage_home.skrollable-before .breadcrumb.hello{transform:translateX(0);opacity:1;}
+.homepage_home.skrollable-after .breadcrumb.contact{transform:translateX(0);opacity:1;}
 
 
 .menu_icon{
@@ -625,7 +620,7 @@ section.intro,section.more_about{
   p{
     padding-top:0;
     
-    @include fluid-type(font-size, 20rem, 100rem, 1rem, 1.125rem);
+    @include fluid-type(font-size, 20rem, 100rem, 1rem, 1rem);
     @include bp(mamabear){  
       margin-left:11.1%;
      
@@ -661,23 +656,25 @@ section.intro,section.more_about{
 
 
 
-.initialise section.opening{
+section.opening{
   &:after{
-    opacity:0;
+      opacity:0;
   }
 
-  .main-title{
+}
+
+.main-title{
     opacity:0;
     transform:translate(0%,100%);
   }
-  .sub-title{
-    opacity:0;
-  }
 
-  .backing_strips{
-    transform:translate(100%,100%) rotate(90deg);
-    opacity:0;
-  }
+.main-sub-title{
+  opacity:0;
+}
+
+.backing_strips{
+  transform:translate(100%,100%) rotate(90deg);
+  opacity:0;
 }
 
 
@@ -696,9 +693,9 @@ section.intro,section.more_about{
     bottom: 0%;
     width: 130%;
     height: 130%;
-    transform:translate(0%,-10%) rotate(0deg);
     transition:all 2s cubic-bezier(0.000, 0.645, 0.565, 1.000);
   }
+  &.loaded{transform:translate(0%,-10%) rotate(0deg);opacity:1;}
 }
 
 
@@ -720,18 +717,12 @@ section.opening{
     background-position:50%;
     background-size:cover;
     background-repeat:no-repeat;
-    opacity:0.6;
     transition:opacity 4s ease-in;
   }
-  @include bp(babybear){
-    background-position:60% 50%;
-  }
-  @include bp(grandpabear){
-    background-position:70% 50%;
-  }
+  &.loaded:after{opacity:0.8;}
+}
 
-
-  .title-container{
+.main-title-container{
     z-index:2;
     position:absolute;
     line-height:1;
@@ -749,10 +740,9 @@ section.opening{
     color:#fff;
     margin:0 auto;
     float:left;
-    opacity:1;
-    transition:opacity 2s ease-out 1s,transform 2s cubic-bezier(0.000, 0.645, 0.565, 1.000) 1s;
+    &.loaded{opacity:1; transform: translate(0,0);transition:opacity 2s ease-out 1s,transform 2s ease-out 1s;}
   }
-  .sub-title{
+  .main-sub-title{
     @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 2.2rem);
     @include fluid-type(letter-spacing, 20rem, 100rem, 0.1rem, 0.1rem);
     clear:both;
@@ -760,11 +750,9 @@ section.opening{
     font-family: 'Proxima Nova bold';
     color:$yellow;
     display:block;
-    transition:opacity 2s ease-in 2s;
-    opacity:1;
+    
+    &.loaded{opacity:1;transition:opacity 2s ease-in 2s;}
   }
-
-}
 
 
 
@@ -789,8 +777,9 @@ section.projects .project{
   overflow:hidden;
   max-width:640px;
   transition: all 200ms ease-out;
-
   &:focus{outline:none;}
+
+
 
   @include bp(babybear){
       width:44.39%;
@@ -874,34 +863,43 @@ section.projects .project{
 }
 
 
+
+
 .prev_textblock{
   width:93.75vw;
   margin:0 3.125vw;
   float:left;
+  display:none;
   @include bp(babybear){
+    display:block;
+    position:absolute;
     width:100vw;
     margin:0;
-    position:absolute;
-    top:50%;
+    top:63%;
     transform:translate(0, -50%);
     left:6.875%;
-    width:41.408%;
-    position:fixed;
+    width:41.408%; 
+  }
+
+  @include bp(mamabear){
+    width:30%;
     visibility: hidden;
     opacity:0;
+    position:fixed;
+    top:50%;
+    transition:opacity 0.5s ease-out;
+
     &.skrollable-between{
       visibility: visible;
       opacity:1;
     }
-  }
-  @include bp(mamabear){
-    width:30%;
     
   }
   @include bp(papabear){
     left:22%;
     width:31.798%;
   } 
+
 
   .title{
     @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 2rem);
@@ -910,10 +908,7 @@ section.projects .project{
     font-family: 'Helvetica Neue Bold';
     padding-top:0;  
     position:relative;
-    display:none;
-    @include bp(babybear){
-      display:block;
-    }
+    
 
     @include bp(babybear){
       &:after{ 
@@ -941,27 +936,24 @@ section.projects .project{
 
 
   p{
-    display:none;
-    @include bp(babybear){
-      display:block;
       @include fluid-type(font-size, 20em, 70em, 1rem, 0.835rem);
       @include fluid-type(padding-bottom, 20em, 70em, 2rem, 2rem);
-      padding-top:0;
-    }
-    
+      padding-top:0;  
   }
 }
 
 .prev_textblock:hover .title:after{transform:translateX(0.5rem);transition:transform 0.2s ease-out;}
 
+
 .big_blocktext{
   visibility:hidden;
   @include bp(babybear){
     @include fluid-type(font-size, 20em, 70em, 10rem, 20rem);
+    @include fluid-type(letter-spacing, 20em, 70em, -0.5rem, -0.5rem);
     font-family: 'Helvetica Neue Bold';
     position:fixed;
     top:50%;
-    color:#fff;
+    color:#ececec;
     z-index:-1;
     opacity:0;
     transition:opacity 0.5s ease-out;
@@ -980,10 +972,6 @@ section.projects .project{
   display:inline-block;
   @include fluid-type(padding-bottom padding-top, 20em, 70em, 2em, 2em);
   a:first-child{margin-left:0!important;}
-
-  @include bp(mamabear){
-     
-    }
 
 
   a{
@@ -1005,9 +993,13 @@ section.projects .project{
         transform: translateY(-50%);
         width:100%;
       }
-      &:hover{
-        // background-color:$darkblue;
-        // g{fill:$yellow;}
+      
+      @media (hover: hover) {  //this means it will only occur on hover and not touch
+        &:hover{
+          background-color:#fff;
+          border:1px solid #d2d7e0;
+        }
+    
       }
   }
 }
@@ -1186,7 +1178,7 @@ section.project_wrapper{
         padding-top:0;
       }
       p{
-        padding-top:0;
+       
       }
       @include bp(babybear){
         width:56.52%;

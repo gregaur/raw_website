@@ -84,7 +84,7 @@
 @mixin hover-effect() {
   &:after{
       content:'';
-      background-color:$yellow;
+      background-color:#fff;
       position:absolute;
       top:-15px;
       bottom:-15px;
@@ -92,7 +92,7 @@
       right:-15px;
       z-index:-15;
       transform:translateX(-120%);
-      transition:transform 0.5s ease-out;
+      transition:transform 0.3s ease-out;
     }
     &:hover:after{
       transform:translateX(0);

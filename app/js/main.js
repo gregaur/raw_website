@@ -3,8 +3,13 @@
 $(document).ready(function () {
 
 	setTimeout(function() {
-        $(".main").removeClass("initialise");
+        $("section.opening,.backing_strips,.main-title,.main-sub-title").addClass("loaded");
+
+
     },1000);
+
+
+
 
 	$(".menu_icon").click(function(){
 		$(".menu_overlay").toggleClass("hidden");
