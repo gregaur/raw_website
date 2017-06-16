@@ -400,6 +400,7 @@ span.line {
     top:1rem;
     left:1rem;
     position:fixed;
+    z-index:4;
   }
 }
 .name-link{
@@ -409,20 +410,20 @@ span.line {
     display:inline-block;
 }
 
-.breadcrumb{
-  @include fluid-type(font-size, 20rem, 100rem, 0.633rem, 0.633rem);
-  @include fluid-type(letter-spacing, 20rem, 100rem, 0.05rem, 0.05rem);
-  top:2rem;
-  display:block;
-  position:absolute;
-  opacity:0;
-  transition:opacity 0.5s ease-out, transform 0.5s ease-out;
-  transform:translateX(-100%) ;
-}
+// .breadcrumb{
+//   @include fluid-type(font-size, 20rem, 100rem, 0.633rem, 0.633rem);
+//   @include fluid-type(letter-spacing, 20rem, 100rem, 0.05rem, 0.05rem);
+//   top:2rem;
+//   display:block;
+//   position:absolute;
+//   opacity:0;
+//   transition:opacity 0.5s ease-out, transform 0.5s ease-out;
+//   transform:translateX(-100%) ;
+// }
 
-.homepage_home.skrollable-between .breadcrumb.project{transform:translateX(0);opacity:1;}
-.homepage_home.skrollable-before .breadcrumb.hello{transform:translateX(0);opacity:1;}
-.homepage_home.skrollable-after .breadcrumb.contact{transform:translateX(0);opacity:1;}
+// .homepage_home.skrollable-between .breadcrumb.project{transform:translateX(0);opacity:1;}
+// .homepage_home.skrollable-before .breadcrumb.hello{transform:translateX(0);opacity:1;}
+// .homepage_home.skrollable-after .breadcrumb.contact{transform:translateX(0);opacity:1;}
 
 
 .menu_icon{
@@ -609,6 +610,7 @@ section.intro,section.more_about{
   @include fluid-type(padding-bottom padding-top, 20rem, 100rem, 8rem, 12rem);
   position:relative;
   z-index:2;  
+  background-color:#f5f5f5;
   .wrapper{
       max-width:900px;
       width:80%;
@@ -656,10 +658,8 @@ section.intro,section.more_about{
 
 
 
-section.opening{
-  &:after{
+.opening-image{
       opacity:0;
-  }
 
 }
 
@@ -670,6 +670,7 @@ section.opening{
 
 .main-sub-title{
   opacity:0;
+  transform:translate(0%,300%);
 }
 
 .backing_strips{
@@ -706,7 +707,9 @@ section.opening{
   width:100%;
   position:relative;
   z-index:1;
-  &:after{
+
+
+  .opening-image{
     content:'';
     position:absolute;
     top:0;
@@ -719,7 +722,8 @@ section.opening{
     background-repeat:no-repeat;
     transition:opacity 4s ease-in;
   }
-  &.loaded:after{opacity:0.8;}
+
+  .opening-image.loaded{opacity:0.8;}
 }
 
 .main-title-container{
@@ -740,7 +744,7 @@ section.opening{
     color:#fff;
     margin:0 auto;
     float:left;
-    &.loaded{opacity:1; transform: translate(0,0);transition:opacity 2s ease-out 1s,transform 2s ease-out 1s;}
+    &.loaded{opacity:1; transform: translate(0,0);transition:opacity 2s ease-out 1s,transform 1s ease-out 1s;}
   }
   .main-sub-title{
     @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 2.2rem);
@@ -751,7 +755,7 @@ section.opening{
     color:$yellow;
     display:block;
     
-    &.loaded{opacity:1;transition:opacity 2s ease-in 2s;}
+    &.loaded{opacity:1;transform:translate(0,0);transition:opacity 1.5s ease-in 1s,transform 1.5s ease-out 1s;;}
   }
 
 
@@ -902,7 +906,7 @@ section.projects .project{
 
 
   .title{
-    @include fluid-type(font-size, 20rem, 100rem, 1.333rem, 2rem);
+    @include fluid-type(font-size, 20rem, 100rem, 1.5rem, 2.369rem);
     @include fluid-type(padding-bottom, 20em, 70em, 0.5rem, 1rem);
     @include fluid-type(padding-top, 20em, 70em, 1.5rem, 0rem);
     font-family: 'Helvetica Neue Bold';
@@ -1090,7 +1094,7 @@ section.project_wrapper{
       text-transform:uppercase;
       @include fluid-type(font-size, 20rem, 100rem, 0.844rem, 0.844rem);
       @include fluid-type(padding-bottom, 20em, 70em, 3em, 2em);
-      @include fluid-type(letter-spacing, 20em, 70em, 0.25em, 0.25em);
+      @include fluid-type(letter-spacing, 20em, 70em, 0.1em, 0.1em);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
 
@@ -1201,13 +1205,7 @@ footer{
   a{color:$darkblue;}
 
     
-  .footer_home{
-    font-family: 'Helvetica Neue Bold';
-    @include fluid-type(font-size, 20rem, 100rem, 1.5rem, 1.5rem);
-    @include fluid-type(padding-bottom, 20rem, 100rem, 0.5rem, 0.5rem);
-    display:inline-block;
-    text-align:right;
-  }
+
 
   .contactdets{
     display:inline-block;

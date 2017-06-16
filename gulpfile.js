@@ -23,7 +23,7 @@ gulp.task('browsersync-init', [], function() {
 gulp.task('rawli-js', ['js'],function(){
     gulp.watch("app/js/*.js", ['js']);
     gulp.watch("*.html").on('change', browserSync.reload);
-    gulp.watch("dist/projects/*.html").on('change', browserSync.reload);
+    gulp.watch("projects/*.html").on('change', browserSync.reload);
 });
 
 
@@ -48,7 +48,7 @@ gulp.task('js',function(){
 gulp.task('rawli-sass', ['sass'],function(){
     gulp.watch("app/scss/*.scss", ['sass']);
     gulp.watch("*.html").on('change', browserSync.reload);
-    gulp.watch("dist/projects/*.html").on('change', browserSync.reload);
+    gulp.watch("projects/*.html").on('change', browserSync.reload);
 });
 
 
