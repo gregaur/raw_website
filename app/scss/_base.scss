@@ -607,7 +607,7 @@ span.line {
 
 
 
-section.intro,section.more_about{
+section.more_about{
   // @include fluid-type(padding-bottom padding-top, 20rem, 100rem, 8rem, 12rem);
   height:80vh;
   position:relative;
@@ -634,6 +634,12 @@ section.intro,section.more_about{
   }
 }
 
+section.intro{
+    @include fluid-type(height, 20rem, 100rem, 5rem, 10rem);
+    background-color: #f5f5f5;
+    position: relative;
+    z-index: 3;
+}
 
 
 
@@ -786,9 +792,11 @@ section.opening{
 section.projects{
   position:relative;
   z-index:3;
+  background-color:#f5f5f5;
   @include clearfix();
-  width:93.75vw;
-  margin:0 3.125vw;
+  // width:93.75vw;
+  width:100%;
+  padding:0 3.125vw;
 }
 
 
@@ -871,11 +879,11 @@ section.projects .project{
     transition: opacity 0.8s linear, visibility 0s;
   }
 
-  .red-slide{background-color:#CC3730;background-image: url(../../dist/images/intropaper_yukfoo.jpg);}
-  .blue-slide{background-color:#148bdf;background-image: url(../../dist/images/intropaper_kaha.jpg); }
-  .purple-slide{background-color:#2E0A2D;background-image: url(../../dist/images/intropaper_br.jpg);}
+  .red-slide{background-color:#CC3730;}
+  .blue-slide{background-color:#148bdf; }
+  .purple-slide{background-color:#2E0A2D;}
   .plainblack-slide{background-color:#000;}
-  .black-slide{background-color:#000;background-image: url(../../dist/images/intropaper_loaf.jpg);}
+  .black-slide{background-color:#000;}
   .white-slide{background-color:#fff;}
 
   .inview{transform:translateX(0); opacity:1;visibility:visible;}
@@ -1162,22 +1170,6 @@ section.project_wrapper{
 
     
 
-    .background-blur_container{
-      position:absolute;
-      bottom:0;
-      width:100%;
-      height:100%;
-      overflow:hidden;
-    }
-
-    .background-blur{
-      position:absolute;
-      bottom:0;
-      width:100%;
-      height:60%;
-      filter: blur(4vw);
-    }
-
     .project_title{
       font-family: 'Helvetica Neue Bold';
       border-top:2px solid #FFF;
@@ -1232,6 +1224,28 @@ section.project_wrapper{
   }
 
 }
+
+
+
+.background-blur_container{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  .background-blur{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:60%;
+    transform:translateY(0%);
+    filter: blur(4vw);
+    opacity:0.8;
+  }
+
+}
+
+
 
 
 .project_segments{
@@ -1377,7 +1391,7 @@ footer{
 .main.project.yukfoo .project_intro{
   background-color: #CC3730;
   background-image: url("../../dist/images/intropaper_yukfoo.jpg");
-  .background-blur{background-color:rgba(204,55,48,0.5);}
+  .background-blur{background-color:rgba(204,55,48,1);}
   .yukfoo_logo{
     @include fluid-type(padding-bottom, 20em, 70em, 1em,1em);
     @include fluid-type(width, 20em, 70em, 7em, 7em);
@@ -1389,7 +1403,7 @@ footer{
 .main.project.loaf .project_intro{
   background-color: #000;
   background-image: url("../../dist/images/intropaper_loaf.jpg");
-  .background-blur{background-color:rgba(0,0,0,0.5);}
+  .background-blur{background-color:rgba(0,0,0,1);}
   .loaf_logo{
     @include fluid-type(padding-bottom, 20em, 70em, 1em,1em);
     @include fluid-type(width, 20em, 70em, 8em, 8em);
@@ -1399,7 +1413,7 @@ footer{
 .main.project.br .project_intro{
   background-color:rgba(48,16,47,1);
   background-image: url("../../dist/images/intropaper_br.jpg");
-  .background-blur{background-color:rgba(48,16,47,0.8);}
+  .background-blur{background-color:rgba(48,16,47,1);}
   .br_logo{
     @include fluid-type(padding-bottom, 20em, 70em, 1em,2em);
     @include fluid-type(width, 20em, 70em, 6em, 5em);
@@ -1409,7 +1423,7 @@ footer{
 .main.project.kaha .project_intro{
   background-color:rgba(20,139,223,1);
   background-image: url("../../dist/images/intropaper_kaha.jpg");
-  .background-blur{background-color:rgba(20,139,223,0.8);}
+  .background-blur{background-color:rgba(20,139,223,1);}
   .kaha_logo{
     @include fluid-type(padding-bottom, 20em, 70em, 1em,2em);
     @include fluid-type(width, 20em, 70em, 5em, 5em);

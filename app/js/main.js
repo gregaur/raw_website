@@ -141,6 +141,10 @@ $(document).ready(function () {
 
 $(".projectpage_title,.left_panel,.right_panel").addClass("loaded");
 
+setTimeout(function() {
+        $(".background-blur_container").addClass("loaded");
+    },1500);
+
 
 
 //pre-loading images
