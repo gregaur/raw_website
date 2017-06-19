@@ -652,11 +652,11 @@ section.more_about{
     .insta{transform:translate(-200px,100px);opacity:0;}
     .linkedin{transform:translate(-200px,100px);opacity:0;}
     &.skrollable-after{
-      h1{transform:translateY(0);opacity:1;transition:transform 0.5s ease-in,opacity 0.7s ease-in;}
+      h1{transform:translateY(0);opacity:1;transition:transform 0.5s ease-in,opacity 1s ease-in;}
       p{transform:translateY(0);opacity:1;transition:transform 0.7s ease-in,opacity 1s ease-in;}
-      .twitter{transform:translate(0,0);opacity:1;transition:transform 0.5s ease-in 0.4s,opacity 0.7s ease-in 0.2s;}
-      .insta{transform:translate(0,0);opacity:1;transition:transform 0.5s ease-in 0.5s,opacity 0.7s ease-in 0.2s;}
-      .linkedin{transform:translate(0,0);opacity:1;transition:transform 0.5s ease-in 0.6s,opacity 0.7s ease-in 0.2s;}
+      .twitter{transform:translate(0,0);opacity:1;transition:transform 0.5s ease-in 0.6s,opacity 1s ease-in 0.2s;}
+      .insta{transform:translate(0,0);opacity:1;transition:transform 0.5s ease-in 0.4s,opacity 1s ease-in 0.2s;}
+      .linkedin{transform:translate(0,0);opacity:1;transition:transform 0.5s ease-in 0.2s,opacity 1s ease-in 0.2s;}
   }
   }
 }
@@ -879,11 +879,11 @@ section.projects .project{
     transition: opacity 0.8s linear, visibility 0s;
   }
 
-  .red-slide{background-color:#CC3730;}
-  .blue-slide{background-color:#148bdf; }
-  .purple-slide{background-color:#2E0A2D;}
+  .red-slide{background-color:#CC3730;background-image: url(../../dist/images/intropaper_yukfoo.jpg);}
+  .blue-slide{background-color:#148bdf;background-image: url(../../dist/images/intropaper_kaha.jpg); }
+  .purple-slide{background-color:#2E0A2D;background-image: url(../../dist/images/intropaper_br.jpg);}
   .plainblack-slide{background-color:#000;}
-  .black-slide{background-color:#000;}
+  .black-slide{background-color:#000;background-image: url(../../dist/images/intropaper_loaf.jpg);}
   .white-slide{background-color:#fff;}
 
   .inview{transform:translateX(0); opacity:1;visibility:visible;}
@@ -994,6 +994,7 @@ section.projects .project{
 
   &.skrollable-between{
     .title:after{
+      transition:transform 0.5s ease-out,opacity 0.5s ease-out;
       transform:translateX(0);
       opacity:1;
     }
@@ -1011,7 +1012,7 @@ section.projects .project{
 .prev_textblock:hover .title:after{transform:translateX(0.5rem);transition:transform 0.2s ease-out;}
 
 .kaha .prev_textblock{
-    transform:translate(-200px,-50%);
+    transform:translate(200px,-50%);
     opacity:0;
     &.skrollable-between{
       transform:translate(0,-50%);
