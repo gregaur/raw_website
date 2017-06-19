@@ -634,16 +634,26 @@ section.intro,section.more_about{
   }
 }
 
-// .intro,.more_about{
-//   @include bp(mamabear){
-//     h1{transform:translateY(200px); opacity:0;}
-//     p{transform:translateY(200px); opacity:0;}
-//   }
-//   &.skrollable-between{
-//     h1{transform:translateY(0); opacity:1; transition:transform 0.5s ease-out, opacity 2s;}
-//     p{transform:translateY(0); opacity:1; transition:transform 1s ease-out, opacity 2s;}
-//   }
-// }
+
+
+
+
+section.more_about{
+  @include bp(mamabear){
+    h1{transform:translateY(200px);opacity:0;}
+    p{transform:translateY(200px);opacity:0;}
+    .twitter{transform:translate(-200px,100px);opacity:0;}
+    .insta{transform:translate(-200px,100px);opacity:0;}
+    .linkedin{transform:translate(-200px,100px);opacity:0;}
+    &.skrollable-after{
+      h1{transform:translateY(0);opacity:1;transition:transform 0.5s ease-in,opacity 0.7s ease-in;}
+      p{transform:translateY(0);opacity:1;transition:transform 0.7s ease-in,opacity 1s ease-in;}
+      .twitter{transform:translate(0,0);opacity:1;transition:transform 0.5s ease-in 0.4s,opacity 0.7s ease-in 0.2s;}
+      .insta{transform:translate(0,0);opacity:1;transition:transform 0.5s ease-in 0.5s,opacity 0.7s ease-in 0.2s;}
+      .linkedin{transform:translate(0,0);opacity:1;transition:transform 0.5s ease-in 0.6s,opacity 0.7s ease-in 0.2s;}
+  }
+  }
+}
 
 
 
@@ -853,8 +863,7 @@ section.projects .project{
     right:0;
     bottom:0;
     z-index:20;
-    // transform:translateX(150%);
-        background-position: 50% 0;
+    background-position: 50% 0;
     background-size: 100% auto;
     background-repeat: no-repeat;
     visibility:hidden;
@@ -865,6 +874,7 @@ section.projects .project{
   .red-slide{background-color:#CC3730;background-image: url(../../dist/images/intropaper_yukfoo.jpg);}
   .blue-slide{background-color:#148bdf;background-image: url(../../dist/images/intropaper_kaha.jpg); }
   .purple-slide{background-color:#2E0A2D;background-image: url(../../dist/images/intropaper_br.jpg);}
+  .plainblack-slide{background-color:#000;}
   .black-slide{background-color:#000;background-image: url(../../dist/images/intropaper_loaf.jpg);}
   .white-slide{background-color:#fff;}
 
@@ -970,7 +980,6 @@ section.projects .project{
         content:"\63";
         transform:translateX(-1rem);
         opacity:0;
-        transition:opacity 0.4s ease-out, transform 0.4s ease-out;
       }
     } 
   }
@@ -980,6 +989,7 @@ section.projects .project{
       transform:translateX(0);
       opacity:1;
     }
+
   }
 
 
@@ -992,7 +1002,15 @@ section.projects .project{
 
 .prev_textblock:hover .title:after{transform:translateX(0.5rem);transition:transform 0.2s ease-out;}
 
-
+.kaha .prev_textblock{
+    transform:translate(-200px,-50%);
+    opacity:0;
+    &.skrollable-between{
+      transform:translate(0,-50%);
+      opacity:1;
+      transition:transform 0.2s ease-in, opacity 0.2s ease-in;
+    }
+}
 
 
 
@@ -1025,6 +1043,13 @@ section.projects .project{
 // .yukfoo .skills>div.active{background-color:rgba(191,37,30,0.15);}
 
 .skills_overview.skrollable-between{visibility:visible;}
+.kaha .skills_overview{
+  opacity:0;
+  &.skrollable-between{
+    opacity:1;
+    transition:opacity 1s ease-in;
+  }
+}
 
 
 
@@ -1180,7 +1205,7 @@ section.project_wrapper{
 
     }
 
-    h1{
+    .projectpage_title{
       color:#fff;
       text-align:center;
       @include fluid-type(padding-top, 20em, 70em, 4em, 4em);
@@ -1190,6 +1215,15 @@ section.project_wrapper{
       margin:0 auto;
       position:relative;
       z-index:1;
+      transform:translateY(-200px);
+      opacity:0;
+      &.loaded{
+        transform:translateY(0);
+        opacity:1;
+        transition:transform 1s ease-out, opacity 2s ease-out;
+      }
+
+
     }
   }
 
@@ -1254,11 +1288,25 @@ section.project_wrapper{
        position:relative;
       @include bp(babybear){
         width:33.33%;
+        opacity:0;
+        transform:translateX(-200px);
+        &.loaded{
+          transform:translateX(0);
+          opacity:1;
+          transition:transform 1.2s ease-out, opacity 2.2s ease-out;
+        }
       }
     }
     .right_panel{
        position:relative;
        z-index:1;
+        opacity:0;
+        transform:translateX(200px);
+      &.loaded{
+        transform:translateX(0);
+        opacity:1;
+         transition:transform 1.5s ease-out, opacity 2.5s ease-out;
+      }
       h2{
         padding-top:0;
       }

@@ -30,7 +30,6 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <script src="../dist/js/all.min.js"></script>
   </head>
   <body>
 
@@ -57,6 +56,7 @@
           <div class="red-slide"></div>
           <div class="purple-slide"></div>
           <div class="black-slide"></div>
+          <div class="plainblack-slide"></div>
           <div class="white-slide"></div>
       </div>
 
@@ -92,7 +92,7 @@
             
           </div>
         </div>
-        <h1><span class="line">New Zealand's biggest</span> <span class="line">beauty guide</span></h1>
+        <h1 class="projectpage_title"><span class="line">New Zealand's biggest</span> <span class="line">beauty guide</span></h1>
 
         <div class="introtext_container">
           <div class="wrapper">
@@ -184,12 +184,50 @@
         </div>
       </footer>
 
-      
 
-        
-       
-
-       
       </div><!-- main closed -->
+
+
+      <script src="../dist/js/all.min.js"></script>
+        <script>
+        if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)){
+              skrollr.init({
+                  forceHeight: false
+              });
+          }
+      </script>
+
+      <script>
+      $(window).bind("load", function() {
+
+        $.preloadImages = function() {
+            for (var i = 0; i < arguments.length; i++) {
+              $("<img />").attr("src", arguments[i]);
+            }
+          }
+          $.preloadImages(
+            "../dist/images/intropaper_kaha.jpg",
+            "../dist/images/intropaper_br.jpg",
+            "../dist/images/intropaper_loaf.jpg",
+            "../dist/images/intropaper_yukfoo.jpg",
+            "../dist/images/project_kaha_1.jpg",
+            "../dist/images/project_kaha_2.jpg",
+            "../dist/images/project_kaha_3.png",
+            "../dist/images/project_kaha_4.png",
+            "../dist/images/project_kaha_5.png",
+            "../dist/images/project_kaha_6.png",
+            "../dist/images/project_kaha_7.jpg",
+            "../dist/images/project_loaf_1.jpg",
+            "../dist/images/project_loaf_2.jpg",
+            "../dist/images/project_loaf_3.jpg",
+            "../dist/images/project_loaf_4.jpg",
+            "../dist/images/project_yf_1.jpg",
+            "../dist/images/project_yf_2.jpg",
+            "../dist/images/project_yf_3.jpg",
+            "../dist/images/project_br_1.jpg",
+            "../dist/images/project_br_2.jpg");
+
+      });
+    </script>
   </body>
 </html>

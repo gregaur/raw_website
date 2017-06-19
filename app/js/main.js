@@ -2,14 +2,16 @@
 
 $(document).ready(function () {
 
+	//homepage animation
+
 	setTimeout(function() {
         $(".opening-image,.backing_strips,.main-title,.main-sub-title").addClass("loaded");
-
-
     },1000);
 
 
 
+
+	//menu toggling
 
 	$(".menu_icon").click(function(){
 		$(".menu_overlay").toggleClass("hidden");
@@ -27,38 +29,55 @@ $(document).ready(function () {
 
 
 
+
+	//screen transitions
+
 	var $kahalink = $(".kaha .project,.kaha .prev_textblock, .menu_projects a.kaha");
 	var $yukfoolink = $(".yukfoo .project,.yukfoo .prev_textblock, .menu_projects a.yukfoo");
 	var $brlink = $(".br .project,.br .prev_textblock, .menu_projects a.br");
 	var $loaflink = $(".loaf .project,.loaf .prev_textblock, .menu_projects a.loaf");
+	var $homelink = $(".home_logo");
 
 
 	$kahalink.click(function(){
 		event.preventDefault();
 		var delay = 1000; 
-		setTimeout(function(){ window.location = "/projects/kaha.html"; }, delay);
+		var href = $(this).attr('href');
+		setTimeout(function(){ window.location = href}, delay);
 		$(".blue-slide").addClass("inview");
 	});
 
 	$yukfoolink.click(function(){
 		event.preventDefault();
 		var delay = 1000; 
-		setTimeout(function(){ window.location = "/projects/yukfoo.html"; }, delay);
+		var href = $(this).attr('href');
+		setTimeout(function(){ window.location = href}, delay);
 		$(".red-slide").addClass("inview");
 	});
 
 	$brlink.click(function(){
 		event.preventDefault();
 		var delay = 1000; 
-		setTimeout(function(){ window.location = "/projects/br.html"; }, delay);
+		var href = $(this).attr('href');
+		setTimeout(function(){ window.location = href}, delay);
 		$(".purple-slide").addClass("inview");
 	});
 
 	$loaflink.click(function(){
 		event.preventDefault();
 		var delay = 1000; 
-		setTimeout(function(){ window.location = "/projects/loaf.html"; }, delay);
+		var href = $(this).attr('href');
+		setTimeout(function(){ window.location = href}, delay);
 		$(".black-slide").addClass("inview");
+	});
+
+
+	$homelink.click(function(){
+		event.preventDefault();
+		var delay = 1000; 
+		var href = $(this).attr('href');
+		setTimeout(function(){ window.location = href}, delay);
+		$(".plainblack-slide").addClass("inview");
 	});
 
 
@@ -118,40 +137,16 @@ $(document).ready(function () {
 });
 
 
+//project screen transitioning
+
+$(".projectpage_title,.left_panel,.right_panel").addClass("loaded");
 
 
 
-$(window).bind("load", function() {
+//pre-loading images
 
-	$.preloadImages = function() {
-		  for (var i = 0; i < arguments.length; i++) {
-		    $("<img />").attr("src", arguments[i]);
-		  }
-		}
 
-		$.preloadImages(
-			"dist/images/intropaper_kaha.jpg",
-			"dist/images/intropaper_br.jpg",
-			"dist/images/intropaper_loaf.jpg",
-			"dist/images/intropaper_yukfoo.jpg",
-			"dist/images/project_kaha_1.jpg",
-			"dist/images/project_kaha_2.jpg",
-			"dist/images/project_kaha_3.png",
-			"dist/images/project_kaha_4.png",
-			"dist/images/project_kaha_5.png",
-			"dist/images/project_kaha_6.png",
-			"dist/images/project_kaha_7.jpg",
-			"dist/images/project_loaf_1.jpg",
-			"dist/images/project_loaf_2.jpg",
-			"dist/images/project_loaf_3.jpg",
-			"dist/images/project_loaf_4.jpg",
-			"dist/images/project_yf_1.jpg",
-			"dist/images/project_yf_2.jpg",
-			"dist/images/project_yf_3.jpg",
-			"dist/images/project_br_1.jpg",
-			"dist/images/project_br_2.jpg");
 
-});
 
 
 		
