@@ -27,6 +27,46 @@ $(document).ready(function () {
 
 
 
+	var $kahalink = $(".kaha .project,.kaha .prev_textblock, .menu_projects a.kaha");
+	var $yukfoolink = $(".yukfoo .project,.yukfoo .prev_textblock, .menu_projects a.yukfoo");
+	var $brlink = $(".br .project,.br .prev_textblock, .menu_projects a.br");
+	var $loaflink = $(".loaf .project,.loaf .prev_textblock, .menu_projects a.loaf");
+
+
+	$kahalink.click(function(){
+		event.preventDefault();
+		var delay = 1000; 
+		setTimeout(function(){ window.location = "/projects/kaha.html"; }, delay);
+		$(".blue-slide").addClass("inview");
+	});
+
+	$yukfoolink.click(function(){
+		event.preventDefault();
+		var delay = 1000; 
+		setTimeout(function(){ window.location = "/projects/yukfoo.html"; }, delay);
+		$(".red-slide").addClass("inview");
+	});
+
+	$brlink.click(function(){
+		event.preventDefault();
+		var delay = 1000; 
+		setTimeout(function(){ window.location = "/projects/br.html"; }, delay);
+		$(".purple-slide").addClass("inview");
+	});
+
+	$loaflink.click(function(){
+		event.preventDefault();
+		var delay = 1000; 
+		setTimeout(function(){ window.location = "/projects/loaf.html"; }, delay);
+		$(".black-slide").addClass("inview");
+	});
+
+
+
+
+	
+
+
 	//----------------------------------------DEBOUNCE FUNCTION
 
 	// Returns a function, that, as long as it continues to be invoked, will not

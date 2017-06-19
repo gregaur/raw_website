@@ -421,20 +421,9 @@ span.line {
     display:inline-block;
 }
 
-// .breadcrumb{
-//   @include fluid-type(font-size, 20rem, 100rem, 0.633rem, 0.633rem);
-//   @include fluid-type(letter-spacing, 20rem, 100rem, 0.05rem, 0.05rem);
-//   top:2rem;
-//   display:block;
-//   position:absolute;
-//   opacity:0;
-//   transition:opacity 0.5s ease-out, transform 0.5s ease-out;
-//   transform:translateX(-100%) ;
-// }
 
-// .homepage_home.skrollable-between .breadcrumb.project{transform:translateX(0);opacity:1;}
-// .homepage_home.skrollable-before .breadcrumb.hello{transform:translateX(0);opacity:1;}
-// .homepage_home.skrollable-after .breadcrumb.contact{transform:translateX(0);opacity:1;}
+
+
 
 
 .menu_icon{
@@ -617,14 +606,22 @@ span.line {
 
 
 
+
 section.intro,section.more_about{
-  @include fluid-type(padding-bottom padding-top, 20rem, 100rem, 8rem, 12rem);
+  // @include fluid-type(padding-bottom padding-top, 20rem, 100rem, 8rem, 12rem);
+  height:80vh;
   position:relative;
   z-index:2;  
   background-color:#f5f5f5;
   .wrapper{
       max-width:900px;
+      position:absolute;
+      display:block;
+      left:0;
+      right:0;
+      transform:translateY(-50%);
       width:80%;
+      top:50%;
       
       @include bp(mamabear){
         width:50.625%;
@@ -633,13 +630,20 @@ section.intro,section.more_about{
   p{
       @include fluid-type(font-size, 20rem, 100rem, 1rem, 1rem);
       padding-top:0;
-      margin-left:11.1%;
-     
-   
-
+      margin-left:11.1%; 
   }
-
 }
+
+// .intro,.more_about{
+//   @include bp(mamabear){
+//     h1{transform:translateY(200px); opacity:0;}
+//     p{transform:translateY(200px); opacity:0;}
+//   }
+//   &.skrollable-between{
+//     h1{transform:translateY(0); opacity:1; transition:transform 0.5s ease-out, opacity 2s;}
+//     p{transform:translateY(0); opacity:1; transition:transform 1s ease-out, opacity 2s;}
+//   }
+// }
 
 
 
@@ -771,7 +775,7 @@ section.opening{
 
 section.projects{
   position:relative;
-  z-index:2;
+  z-index:3;
   @include clearfix();
   width:93.75vw;
   margin:0 3.125vw;
@@ -841,6 +845,36 @@ section.projects .project{
 }
 
 
+.color-slides{
+  &>div{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:20;
+    // transform:translateX(150%);
+        background-position: 50% 0;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    visibility:hidden;
+    opacity:0;
+    transition: opacity 0.8s linear, visibility 0s;
+  }
+
+  .red-slide{background-color:#CC3730;background-image: url(../../dist/images/intropaper_yukfoo.jpg);}
+  .blue-slide{background-color:#148bdf;background-image: url(../../dist/images/intropaper_kaha.jpg); }
+  .purple-slide{background-color:#2E0A2D;background-image: url(../../dist/images/intropaper_br.jpg);}
+  .black-slide{background-color:#000;background-image: url(../../dist/images/intropaper_loaf.jpg);}
+  .white-slide{background-color:#fff;}
+
+  .inview{transform:translateX(0); opacity:1;visibility:visible;}
+
+}
+
+
+
+
 .logo_prev{
   position: absolute;
   z-index: 2;
@@ -869,8 +903,9 @@ section.projects .project{
     clear:both;
     float:left;
     width:100%;
+    padding-top:1rem;
     @include bp(babybear){
-      @include fluid-type(padding-top, 20em, 70em, 6rem, 10rem);
+      @include fluid-type(padding-top, 20em, 70em, 6rem, 14rem);
       @include fluid-type(padding-bottom, 20em, 70em, 0rem, 5rem);
     } 
 }
@@ -958,6 +993,41 @@ section.projects .project{
 .prev_textblock:hover .title:after{transform:translateX(0.5rem);transition:transform 0.2s ease-out;}
 
 
+
+
+
+.skills_overview{
+  display:none;
+  @include bp(mamabear){
+    display:block;
+    bottom:2rem;
+    left:1rem;
+    width:41.408%; 
+    position:fixed;
+    z-index:4;
+    opacity:1;
+    visibility:hidden;
+    &>div{
+      @include fluid-type(font-size, 20rem, 100rem, 0.75rem, 0.75rem);
+      display:inline-block;
+      color:rgba(15,22,38,1);
+      line-height:1;
+      padding:0.25rem 0.25rem;
+    }
+  }
+  @include bp(papabear){
+    left:11.6%;
+    width:31.798%;
+  } 
+}
+
+// .kaha .skills>div.active{background-color:rgba(2,91,168,0.15);}
+// .yukfoo .skills>div.active{background-color:rgba(191,37,30,0.15);}
+
+.skills_overview.skrollable-between{visibility:visible;}
+
+
+
 .big_blocktext{
   visibility:hidden;
   @include bp(babybear){
@@ -976,6 +1046,7 @@ section.projects .project{
     }
   }
 }
+
 
 
 
@@ -1128,6 +1199,7 @@ section.project_wrapper{
 
 }
 
+
 .project_segments{
     z-index:1;
     @include fluid-type(padding-top, 20em, 70em, 4em, 4em);
@@ -1263,6 +1335,8 @@ footer{
     @include fluid-type(width, 20em, 70em, 7em, 7em);
   } 
 }
+
+
 
 .main.project.loaf .project_intro{
   background-color: #000;
