@@ -389,6 +389,17 @@ span.line {
   }
 }
 
+// .menu_icon_container {
+//   .menustrips>div{
+//     transform:translateX(100px);
+//   }
+//   &.loaded .menustrips{
+//       .topstrip{transform:translateX(0);transition:transform 0.5s ease-out 3s;}
+//       .midstrip{transform:translateX(0);transition:transform 0.5s ease-out 3.2s;}
+//       .bottomstrip{transform:translateX(0);transition:transform 0.5s ease-out 3.4s;}
+//   }
+// }
+
 
 
 
@@ -435,7 +446,7 @@ span.line {
 
 .menu_icon.close-icon{
   .topstrip{background-color:$darkblue;transform:rotate(-45deg) translate(-7px,6px);}
-  .midstrip{opacity:0;}
+  .midstrip{transform:translate(50px,0);}
   .bottomstrip{background-color:$darkblue; transform:rotate(45deg) translate(-7px,-5px);}
 }
 
@@ -563,9 +574,6 @@ span.line {
       color:#fff;
       position:absolute;
       left:2rem;
-      &:hover{
-
-      }
     }
 
     .navigation{
@@ -574,33 +582,7 @@ span.line {
       width:100%;
     }
 
-    .right_nav{ 
-        @include fluid-type(padding-top, 20rem, 100rem, 1.5rem, 2rem);
-        letter-spacing:0.5px;
-        float:right;
-        right:0;
-        
-        a{
-          @include fluid-type(font-size, 20rem, 100rem, 1rem, 0.844rem);
-          font-family: 'Proxima Nova semibold';
-          color:#fff; 
-          position:relative;
-          &:after{
-            content:'';
-            position:absolute;
-            left:0;
-            right:0;
-            border:1px solid #fff;
-            bottom:calc(-1rem);
-            transform:scale(0,0);
-            transform-origin: left top;
-            transition: transform 0.2s ease-out;
-          }
-            &:hover:after{
-            transform:scale(1,1);
-          }
-        }
-    }
+    
 
 // SECTIONS
 
@@ -968,8 +950,8 @@ section.projects .project{
 
 
   .title{
-    @include fluid-type(font-size, 20rem, 100rem, 1.5rem, 2.369rem);
-    @include fluid-type(padding-bottom, 20em, 70em, 0.5rem, 1rem);
+    @include fluid-type(font-size, 20rem, 100rem, 1.5rem, 2.665rem);
+    @include fluid-type(padding-bottom, 20em, 70em, 0.5rem, 0.75rem);
     @include fluid-type(padding-top, 20em, 70em, 1.5rem, 0rem);
     font-family: 'Helvetica Neue Bold';
     padding-top:0;  
@@ -1213,7 +1195,7 @@ section.project_wrapper{
       &.loaded{
         transform:translateY(0);
         opacity:1;
-        transition:transform 1s ease-out, opacity 2s ease-out;
+        transition:transform 1.2s ease-out, opacity 2.5s ease-out;
       }
 
 
@@ -1321,7 +1303,7 @@ section.project_wrapper{
       &.loaded{
         transform:translateX(0);
         opacity:1;
-         transition:transform 1.5s ease-out, opacity 2.5s ease-out;
+         transition:transform 1.2s ease-out, opacity 2.2s ease-out;
       }
       h2{
         padding-top:0;
