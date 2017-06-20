@@ -1,6 +1,10 @@
 // 'use strict';
+var $projectransition = $(".projectpage_title,.left_panel,.right_panel")
+
 
 $(document).ready(function () {
+
+	
 
 	//homepage animation
 
@@ -43,6 +47,7 @@ $(document).ready(function () {
 		event.preventDefault();
 		var delay = 1000; 
 		var href = $(this).attr('href');
+		$projectransition.removeClass("loaded");
 		setTimeout(function(){ window.location = href}, delay);
 		$(".blue-slide").addClass("inview");
 	});
@@ -51,6 +56,7 @@ $(document).ready(function () {
 		event.preventDefault();
 		var delay = 1000; 
 		var href = $(this).attr('href');
+		$projectransition.removeClass("loaded");
 		setTimeout(function(){ window.location = href}, delay);
 		$(".red-slide").addClass("inview");
 	});
@@ -59,6 +65,7 @@ $(document).ready(function () {
 		event.preventDefault();
 		var delay = 1000; 
 		var href = $(this).attr('href');
+		$projectransition.removeClass("loaded");
 		setTimeout(function(){ window.location = href}, delay);
 		$(".purple-slide").addClass("inview");
 	});
@@ -67,6 +74,7 @@ $(document).ready(function () {
 		event.preventDefault();
 		var delay = 1000; 
 		var href = $(this).attr('href');
+		$projectransition.removeClass("loaded");
 		setTimeout(function(){ window.location = href}, delay);
 		$(".black-slide").addClass("inview");
 	});
@@ -76,6 +84,7 @@ $(document).ready(function () {
 		event.preventDefault();
 		var delay = 1000; 
 		var href = $(this).attr('href');
+		$projectransition.removeClass("loaded");
 		setTimeout(function(){ window.location = href}, delay);
 		$(".plainblack-slide").addClass("inview");
 	});
@@ -139,7 +148,7 @@ $(document).ready(function () {
 
 //project screen transitioning
 
-$(".projectpage_title,.left_panel,.right_panel").addClass("loaded");
+
 
 setTimeout(function() {
         $(".background-blur_container").addClass("loaded");
@@ -147,9 +156,13 @@ setTimeout(function() {
 
 
 
-//pre-loading images
+//this occurs only once all content has loaded
 
+ $(window).bind("load", function() {
 
+ 	$(".projectpage_title,.left_panel,.right_panel").addClass("loaded");
+
+});
 
 
 

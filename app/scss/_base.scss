@@ -648,15 +648,17 @@ section.more_about{
   @include bp(mamabear){
     h1{transform:translateY(200px);opacity:0;}
     p{transform:translateY(200px);opacity:0;}
-    .twitter{transform:translate(-200px,100px);opacity:0;}
-    .insta{transform:translate(-200px,100px);opacity:0;}
-    .linkedin{transform:translate(-200px,100px);opacity:0;}
+    .icons_container{transform: translateX(33%);}
+    .twitter{transform:translate(0,100px);opacity:0;}
+    .insta{transform:translate(0,100px);opacity:0;}
+    .linkedin{transform:translate(0,100px);opacity:0;}
     &.skrollable-after{
       h1{transform:translateY(0);opacity:1;transition:transform 0.5s ease-in,opacity 1s ease-in;}
       p{transform:translateY(0);opacity:1;transition:transform 0.7s ease-in,opacity 1s ease-in;}
-      .twitter{transform:translate(0,0);opacity:1;transition:transform 0.5s ease-in 0.6s,opacity 1s ease-in 0.2s;}
+      .icons_container{transform: translateX(0);transition:transform 0.5s ease-in 1s;}
+      .twitter{transform:translate(0,0);opacity:1;transition:transform 0.5s ease-in 0.2s,opacity 1s ease-in 0.2s;}
       .insta{transform:translate(0,0);opacity:1;transition:transform 0.5s ease-in 0.4s,opacity 1s ease-in 0.2s;}
-      .linkedin{transform:translate(0,0);opacity:1;transition:transform 0.5s ease-in 0.2s,opacity 1s ease-in 0.2s;}
+      .linkedin{transform:translate(0,0);opacity:1;transition:transform 0.5s ease-in 0.6s,opacity 1s ease-in 0.2s;}
   }
   }
 }
@@ -687,10 +689,6 @@ section.more_about{
 
 
 
-.opening-image{
-      opacity:0;
-
-}
 
 .main-title{
     opacity:0;
@@ -749,10 +747,12 @@ section.opening{
     background-position:50%;
     background-size:cover;
     background-repeat:no-repeat;
-    transition:opacity 4s ease-in;
+    opacity:0;
+    visibility:hidden;
+
   }
 
-  .opening-image.loaded{opacity:0.8;}
+  .opening-image.loaded{opacity:0.8;  transition:opacity 4s ease-in; visibility:visible;}
 }
 
 .main-title-container{
@@ -1305,10 +1305,11 @@ section.project_wrapper{
         width:33.33%;
         opacity:0;
         transform:translateX(-200px);
+        transition:transform 1.2s ease-out, opacity 2.2s ease-out;
         &.loaded{
           transform:translateX(0);
           opacity:1;
-          transition:transform 1.2s ease-out, opacity 2.2s ease-out;
+          
         }
       }
     }
