@@ -611,7 +611,6 @@ section.more_about{
   }
   p{
       @include fluid-type(font-size, 20rem, 100rem, 1rem, 1rem);
-      padding-top:0;
       margin-left:11.1%; 
   }
 }
@@ -1016,10 +1015,11 @@ section.projects .project{
     z-index:4;
     opacity:1;
     visibility:hidden;
+    color:$textgray;
     &>div{
       @include fluid-type(font-size, 20rem, 100rem, 0.75rem, 0.75rem);
+     
       display:inline-block;
-      color:rgba(15,22,38,1);
       line-height:1;
       padding:0.25rem 0.25rem;
     }

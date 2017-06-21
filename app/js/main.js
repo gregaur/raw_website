@@ -40,7 +40,7 @@ $(document).ready(function () {
 	var $yukfoolink = $(".yukfoo .project,.yukfoo .prev_textblock, .menu_projects a.yukfoo");
 	var $brlink = $(".br .project,.br .prev_textblock, .menu_projects a.br");
 	var $loaflink = $(".loaf .project,.loaf .prev_textblock, .menu_projects a.loaf");
-	var $homelink = $(".home_logo");
+	var $homelink = $(".home_logo,.menu_title");
 
 
 	$kahalink.click(function(){
