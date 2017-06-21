@@ -161,9 +161,11 @@
       <script src="../dist/js/all.min.js"></script>
         <script>
         if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)){
-              skrollr.init({
+              var s = skrollr.init({
                   forceHeight: false
               });
+
+              skrollr.menu.init(s);
           }
       </script>
 

@@ -1233,7 +1233,7 @@ section.project_wrapper{
 
 .project_segments{
     z-index:1;
-    @include fluid-type(padding-top, 20em, 70em, 4em, 4em);
+    // @include fluid-type(padding-top, 20em, 70em, 4em, 4em);
     section{
       @include fluid-type(padding-bottom padding-top, 20em, 70em, 3em, 3em);
     }
@@ -1368,6 +1368,48 @@ footer{
     
 
 
+
+@include bp(mamabear){
+  .segment-navigator{
+    position:fixed;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:9;
+    left:1rem;
+
+    a{
+      display:block;
+      clear:both;
+      padding:4px 4px;
+      background-color: rgba(15,22,38,.1);
+      margin:8px 0;
+      border-radius:12px;
+      transform:scale(1);
+      transition:transform 0.2s ease-out;
+    }
+    a:before{
+      content:"";
+      display:block;
+      border:1px solid #fff;
+      width:10px;
+      height:10px;
+      border-radius:12px;
+
+    }
+
+    a:hover{
+      background-color: rgba(15,22,38,.3);
+      transform:scale(1.4);
+    }
+    a.skrollable-between:before{
+      background-color:#fff;
+      // border:1px solid rgba(15,22,38,.1);
+    }
+    a.skrollable-between{
+      transform:scale(1.4);
+    }
+  }
+}
 
 
 //PROJECT SPECIFIC

@@ -31,6 +31,7 @@ gulp.task('js',function(){
     return gulp.src([
         'app/js/jquery.min.js',
         'app/js/skrollr.min.js',
+        'app/js/skrollr.menu.min.js',
         // 'node_modules/foundation-sites/dist/js/foundation.min.js',
         // 'node_modules/foundation-sites/dist/js/foundation.util.timerAndImageLoader.js',
         'app/js/main.js'])
