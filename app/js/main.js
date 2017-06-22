@@ -163,7 +163,7 @@ setTimeout(function() {
 
  $(window).bind("load", function() {
 
- 	$(".projectpage_title,.left_panel,.right_panel").addClass("loaded");
+ 	$(".projectpage_title,.left_panel,.right_panel,.segment-navigator").addClass("loaded");
 
 });
 

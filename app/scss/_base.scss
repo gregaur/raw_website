@@ -330,7 +330,7 @@ span.line {
 }
 
 @-webkit-keyframes grain{
-  0%,to{transform:translate(0);transform:translate(0)}
+  0%{transform:translate(0);transform:translate(0)}
   10%{transform:translate(-5%,-10%);transform:translate(-5%,-10%)}
   20%{transform:translate(-15%,5%);transform:translate(-15%,5%)}
   30%{transform:translate(7%,-25%);transform:translate(7%,-25%)}
@@ -1377,39 +1377,81 @@ footer{
     z-index:9;
     left:1rem;
 
+    li{
+      position:relative;
+    }
+
+
     a{
       display:block;
       clear:both;
-      padding:4px 4px;
+      padding:5px 5px;
       background-color: rgba(15,22,38,.1);
-      margin:8px 0;
-      border-radius:12px;
+      margin:1rem 0;
       transform:scale(1);
-      transition:transform 0.2s ease-out;
+      transition:transform 0.2s ease-out; 
     }
-    a:before{
+
+    a:after{
       content:"";
       display:block;
-      border:1px solid #fff;
-      width:10px;
-      height:10px;
+      background-color:rgba(255,255,255,0.4);
+      width:6px;
+      height:6px;
       border-radius:12px;
-
     }
+
+   
 
     a:hover{
       background-color: rgba(15,22,38,.3);
-      transform:scale(1.4);
-    }
-    a.skrollable-between:before{
-      background-color:#fff;
-      // border:1px solid rgba(15,22,38,.1);
+      transform:scale(1.7);
     }
     a.skrollable-between{
-      transform:scale(1.4);
+      transform:scale(1.7);
+      &:after{
+        border:1px solid rgba(255,255,255,1);
+        background-color:rgba(255,255,255,1);
+      }
+
     }
   }
+
+@include bp(papabear){
+  .segment-navigator{
+    left:2rem;
+  }
+}  
+
+
+
+@-webkit-keyframes expandfade{
+  0%{opacity:0;transform:scale(0.5)}
+  50%{opacity:0.5;transform:scale(0.75)}
+  100%{opacity:0;transform:scale(1)}
 }
+
+  // .segment-navigator.kaha a.skrollable-between:before{
+  //   background-color:$kaha-color;
+  // }
+  // .segment-navigator.yukfoo a.skrollable-between:before{
+  //   background-color:$yukfoo-color;
+  // }
+  // .segment-navigator.loaf a.skrollable-between:before{
+  //   background-color:$yellow;
+  // }
+  // .segment-navigator.br a.skrollable-between:before{
+  //   background-color:#c74499;
+  // }
+}
+
+
+// .segment-navigator.loaded a,.segment-navigator.loaded.skrollable-between a{
+//   transform:translateX(0px);
+//   opacity:1;
+//   transition:transform 1s ease-out;
+// }
+
 
 
 //PROJECT SPECIFIC
