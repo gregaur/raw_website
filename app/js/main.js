@@ -8,9 +8,9 @@ $(document).ready(function () {
 
 	//homepage animation
 
-	setTimeout(function() {
-        $(".opening-image,.backing_strips,.main-title,.main-sub-title,.menu_icon_container").addClass("loaded");
-    },1000);
+	// setTimeout(function() {
+ //        $(".opening-image,.backing_strips,.main-title,.main-sub-title,.menu_icon_container").addClass("loaded");
+ //    },1000);
 
 
 
@@ -162,7 +162,7 @@ setTimeout(function() {
 //this occurs only once all content has loaded
 
  $(window).bind("load", function() {
-
+ 	$(".opening-image,.backing_strips,.main-title,.main-sub-title,.menu_icon_container").addClass("loaded");
  	$(".projectpage_title,.left_panel,.right_panel,.segment-navigator").addClass("loaded");
 
 });
